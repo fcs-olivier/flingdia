@@ -21,10 +21,10 @@
 &sus{y(P2,K)}<=top(R1,K)        :- true(&touches_rp(R1,P2),K).
 
 % At least one edge contact.
-1{c1_touches_rp(R1,P2,K);
+c1_touches_rp(R1,P2,K);
   c2_touches_rp(R1,P2,K);
   c3_touches_rp(R1,P2,K);
-  c4_touches_rp(R1,P2,K)} :- true(&touches_rp(R1,P2),K).
+  c4_touches_rp(R1,P2,K) :- true(&touches_rp(R1,P2),K).
 
 &sus{x(P2,K)}=left_side(R1,K)  :- c1_touches_rp(R1,P2,K).
 &sus{y(P2,K)}=bottom(R1,K)     :- c2_touches_rp(R1,P2,K).
