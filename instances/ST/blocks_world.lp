@@ -1,0 +1,43 @@
+%*
+metasp solve flingo --meta-config config.yaml \
+                    --warn=no-atom-undefined \
+                    --project=show \
+                    instances/ST/blocks_world.lp  0 \
+                    -c display_time=7  \
+                    -c n=5 
+*%
+
+&inertia.
+
+block(a;b;c).
+rect(table;B):- block(B).
+
+&eq(height(B),1) :- block(B).
+&eq(width(B),1) :- block(B).
+predefined(table).
+
+&on_rr(a,table):- &initial.
+&on_rr(b,a):- &initial.
+&on_rr(c,b):- &initial.
+
+:- &final, not &on_rr(a,b).
+:- &final, not &on_rr(b,c).
+:- &final, not &on_rr(c,table).
+
+% no two rectangles can overlap
+:- &overlap_rr(R1,R2), rect(R1), rect(R2).
+
+% blocks cannot levitate if they are not in motion or on a rectangle (block or table)
+:- block(B), not &move(B), not &on_rr(B,R): rect(R).
+
+% a block cannot move if it is under another block
+cannot_move(B1) :- block(B1), block(B2), &on_rr(B2,B1).
+
+% among all blocks that can move, we enable one of them to do so
+0{&move(B):block(B), not cannot_move(B)}1.
+
+
+
+
+
+

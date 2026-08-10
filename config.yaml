@@ -1,0 +1,31 @@
+syntax-encoding:
+  - "syntax.lp"
+
+semantics-encoding:
+  - "semantics.lp"
+  - "axioms.lp"
+  - "numerical_atoms.lp"
+  # All the schemas are in the geo_schema folders below.
+  - "schemas/geo_sorts.lp"     # For geo sorts
+  - "schemas/rels/line_.lp"     # For relations starting here
+  - "schemas/rels/point_.lp"
+  - "schemas/rels/point_point.lp"
+  - "schemas/rels/point_rect.lp"
+  - "schemas/rels/rect_point.lp"
+  - "schemas/rels/rect_.lp"
+  - "schemas/rels/rect_line.lp"
+  - "schemas/rels/rect_rect_POS.lp"
+  - "schemas/rels/rect_rect_TOPO.lp"
+  - "schemas/actions/move.lp"     # For actions
+  - "schemas/actions/grows.lp" 
+  # All the modules are in the modules folder below.
+  - "modules/base_objs.lp"     # For base objects
+  #- "modules/europe.lp"     
+
+python-scripts: ["print_functions.py"] # comment all the printers to see the raw output
+printer: "table_printer"
+#printer: "mpl_printer"
+
+
+
+
