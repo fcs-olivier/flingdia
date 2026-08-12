@@ -19,6 +19,9 @@ GEOMETRIC_SORT_PREDICATES = ("point", "point3", "rect", "line", "box")
 TEMPORAL_OPERATOR_PREDICATES = ("__initial", "__next", "__prev", "__eventually")
 DEFAULT_DISPLAY_TIME = 7
 DEFAULT_SPACE_LIMITS = {"xmin": 0, "xmax": 10, "ymin": 0, "ymax": 10, "zmin": 0, "zmax": 10}
+SPACE_BORDER_COLOR = "grey"
+SPACE_BORDER_WIDTH = 2.0
+SPACE_BORDER_ALPHA = 0.8  # sets the opacity of the border, max is 1.0 
 
 # Add object names to these lists to force display colors in matplotlib.
 # Matching is substring-based, so "bank" also matches compound names like
@@ -173,6 +176,23 @@ class GeometricDisplayer:
             # Use a fixed axes box for equal scaling. This avoids tiny layout
             # changes between states when the drawn objects or labels vary.
             ax.set_aspect("equal", adjustable="box")
+            self._draw_space_border(ax)
+
+    def _draw_space_border(self, ax):
+        """Outline the spatial domain without hiding objects placed on it."""
+        # Drawn unfilled and translucent so points/rects lying exactly on the
+        # border stay readable. A low zorder keeps it behind every object.
+        border = Rectangle(
+            (self.xmin, self.ymin),
+            self.xmax - self.xmin,
+            self.ymax - self.ymin,
+            fill=False,
+            edgecolor=SPACE_BORDER_COLOR,
+            linewidth=SPACE_BORDER_WIDTH,
+            alpha=SPACE_BORDER_ALPHA,
+            zorder=0,
+        )
+        ax.add_patch(border)
 
     def _draw_axes_arrows_3d(self, ax):
         """Draw simple domain arrows from the lower corner."""
