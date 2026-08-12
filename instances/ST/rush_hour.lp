@@ -7,7 +7,21 @@ metasp solve flingo --meta-config config.yaml \
                     -c n=5 \
                     -c xmax=6 \
                     -c ymax=6 
+
+
+metasp solve flingo --meta-config config.yaml \
+                    --warn=no-atom-undefined \
+                    instances/ST/rush_hour.lp  1 \
+                    -c display_time=7  \
+                    --project=show \
+                    -c n=12 \
+                    -c xmax=6 \
+                    -c ymax=6 \
+                    -t 4 \
+                    --configuration=trendy
 *%
+
+
 
 &inertia.
 &df :- &initial.
