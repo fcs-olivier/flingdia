@@ -8,6 +8,7 @@ metasp solve flingo --meta-config config.yaml \
                     -c xmax=6 \
                     -c ymax=6 
 
+% use this command as long as the seed bug is not fixed. 
 
 metasp solve flingo --meta-config config.yaml \
                     --warn=no-atom-undefined \
@@ -60,6 +61,7 @@ rect(red; beige; pink; yellow; orange; plum; purple; blue).
 % vertical cars move up/down, horizontal cars move right/left. 
 {&move_right(R);&move_left(R)}1 :- &horizontal_r(R), rect(R).
 {&move_up(R);&move_down(R)}1 :- &vertical_r(R), rect(R).
+:- &move(R1), &move(R2), rect(R1), rect(R2), R1 != R2.
 
 % BUG : if we want to restrict only one car to move, this makes the computation gets stuck
 %       with n = 15, it takes at least 3 minutes and possibly more. 
