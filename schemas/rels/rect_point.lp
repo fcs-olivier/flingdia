@@ -21,9 +21,9 @@
 &sus{y(P2,K)}<=top(R1,K)        :- true(&touches_rp(R1,P2),K).
 
 % At least one edge contact.
-c1_touches_rp(R1,P2,K);
-  c2_touches_rp(R1,P2,K);
-  c3_touches_rp(R1,P2,K);
+c1_touches_rp(R1,P2,K)|
+  c2_touches_rp(R1,P2,K)|
+  c3_touches_rp(R1,P2,K)|
   c4_touches_rp(R1,P2,K) :- true(&touches_rp(R1,P2),K).
 
 &sus{x(P2,K)}=left_side(R1,K)  :- c1_touches_rp(R1,P2,K).
@@ -31,33 +31,38 @@ c1_touches_rp(R1,P2,K);
 &sus{x(P2,K)}=right_side(R1,K) :- c3_touches_rp(R1,P2,K).
 &sus{y(P2,K)}=top(R1,K)        :- c4_touches_rp(R1,P2,K).
 
-true(&touches_rp(R1,P2),K) :- formula(spatial, &touches_rp(R1,P2)),
+c1_touches_rp(R1,P2,K) :- formula(spatial, &touches_rp(R1,P2)),
                             &sus{x(P2,K)}>=left_side(R1,K),
                             &sus{y(P2,K)}>=bottom(R1,K),
                             &sus{x(P2,K)}<=right_side(R1,K),
                             &sus{y(P2,K)}<=top(R1,K),
                             &sus{x(P2,K)}=left_side(R1,K), time(K).
 
-true(&touches_rp(R1,P2),K) :- formula(spatial, &touches_rp(R1,P2)),
+c2_touches_rp(R1,P2,K) :- formula(spatial, &touches_rp(R1,P2)),
                             &sus{x(P2,K)}>=left_side(R1,K),
                             &sus{y(P2,K)}>=bottom(R1,K),
                             &sus{x(P2,K)}<=right_side(R1,K),
                             &sus{y(P2,K)}<=top(R1,K),
                             &sus{y(P2,K)}=bottom(R1,K), time(K).
 
-true(&touches_rp(R1,P2),K) :- formula(spatial, &touches_rp(R1,P2)),
+c3_touches_rp(R1,P2,K) :- formula(spatial, &touches_rp(R1,P2)),
                             &sus{x(P2,K)}>=left_side(R1,K),
                             &sus{y(P2,K)}>=bottom(R1,K),
                             &sus{x(P2,K)}<=right_side(R1,K),
                             &sus{y(P2,K)}<=top(R1,K),
                             &sus{x(P2,K)}=right_side(R1,K), time(K).
 
-true(&touches_rp(R1,P2),K) :- formula(spatial, &touches_rp(R1,P2)),
+c4_touches_rp(R1,P2,K) :- formula(spatial, &touches_rp(R1,P2)),
                             &sus{x(P2,K)}>=left_side(R1,K),
                             &sus{y(P2,K)}>=bottom(R1,K),
                             &sus{x(P2,K)}<=right_side(R1,K),
                             &sus{y(P2,K)}<=top(R1,K),
                             &sus{y(P2,K)}=top(R1,K), time(K).
+
+true(&touches_rp(R1,P2),K) :- c1_touches_rp(R1,P2,K).
+true(&touches_rp(R1,P2),K) :- c2_touches_rp(R1,P2,K).
+true(&touches_rp(R1,P2),K) :- c3_touches_rp(R1,P2,K).
+true(&touches_rp(R1,P2),K) :- c4_touches_rp(R1,P2,K).
 
 invalid_relation_arg(&touches_rp(R1,P2)) :- formula(spatial, &touches_rp(R1,P2)),
                                          #count {valid_arg_1 : true(rect(R1),K);

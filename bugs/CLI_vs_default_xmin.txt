@@ -1,0 +1,2 @@
+xmax and ymax are not passed to the input program if not given through the CLI. 
+So using &df fails to define everything since xmax and ymax are undefined. 

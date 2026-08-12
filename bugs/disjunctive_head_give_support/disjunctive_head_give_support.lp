@@ -4,6 +4,7 @@ Run from the flingdia_supportive folder:
 metasp solve flingo --meta-config config.yaml \
                     --warn=no-atom-undefined \
                     bugs/disjunctive_head_give_support/disjunctive_head_give_support.lp  1 \
+                    --printer=mpl_printer \
                     -c display_time=5 \
                     -c n=1
 

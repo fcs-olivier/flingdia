@@ -4,7 +4,7 @@ metasp solve flingo --meta-config config.yaml \
                     instances/ST/rush_hour.lp  1 \
                     -c display_time=7  \
                     --project=show \
-                    -c n=3 \
+                    -c n=15 \
                     -c xmax=6 \
                     -c ymax=6 
 *%
@@ -42,22 +42,29 @@ rect(red; beige; pink; yellow; orange; plum; purple; blue).
 &eq(left_side(blue),2) :- &initial. &eq(width(blue),3)  :- &initial.
 &eq(bottom(blue),4)    :- &initial. &eq(height(blue),1) :- &initial.
 
+% OPTION 1
 % vertical cars move up/down, horizontal cars move right/left. 
-0{&move_right(R);&move_left(R)}1 :- &horizontal_r(R), rect(R).
-0{&move_up(R);&move_down(R)}1 :- &vertical_r(R), rect(R).
+{&move_right(R);&move_left(R)}1 :- &horizontal_r(R), rect(R).
+{&move_up(R);&move_down(R)}1 :- &vertical_r(R), rect(R).
+
+% BUG : if we want to restrict only one car to move, this makes the computation gets stuck
+%       with n = 15, it takes at least 3 minutes and possibly more. 
+%:- &move(R1), &move(R2), rect(R1), rect(R2), R1 != R2.
+%:- {&move(R): rect(R)}>1.
+
+% OPTION 2:  with an auxiliary predicate, but we have the same problem as above. 
+% {move_vehicule(R) : rect(R)} = 1.
+% {&move_right(R);&move_left(R)}1 :- move_vehicule(R), &horizontal_r(R).
+% {&move_up(R);&move_down(R)}1 :- move_vehicule(R), &vertical_r(R).
+
 
 % no cars can overlap
 :- &overlap_rr(R1,R2), rect(R1), rect(R2).
 
-% at most one car can move in each time step
-%:- &move(R1), &move(R2), rect(R1), rect(R2), R1 != R2.
-:- {&move(R): rect(R)}>1.
-
-
 % the red car must reach the exit
-:- &final, not &touches_rp(blue,exit).   % WORKS FINE WITH MORE SIMPLE GOAL BLUE
+%:- &final, not &touches_rp(blue,exit).   % WORKS FINE WITH MORE SIMPLE GOAL BLUE, n=4 max! 
 %:- &final, not &inEq_pr(exit, red).
 
-%:- &final, not &touches_rp(red,exit).
+:- &final, not &touches_rp(red,exit).
 %:- &final, not &inEq_pr(exit, red).
 
