@@ -4,7 +4,7 @@ metasp solve flingo --meta-config config.yaml \
                     instances/ST/rush_hour.lp  1 \
                     -c display_time=7  \
                     --project=show \
-                    -c n=15 \
+                    -c n=5 \
                     -c xmax=6 \
                     -c ymax=6 
 *%
@@ -52,8 +52,9 @@ rect(red; beige; pink; yellow; orange; plum; purple; blue).
 %:- &move(R1), &move(R2), rect(R1), rect(R2), R1 != R2.
 %:- {&move(R): rect(R)}>1.
 
-% OPTION 2:  with an auxiliary predicate, but we have the same problem as above. 
-% {move_vehicule(R) : rect(R)} = 1.
+% OPTION 2:  with an auxiliary predicate, but we have the same BUG as above. 
+%            With 4 vehicules it is still fast, with only 3 that can move, it gets stuck. 
+% {move_vehicule(R) : rect(R)} = 3.
 % {&move_right(R);&move_left(R)}1 :- move_vehicule(R), &horizontal_r(R).
 % {&move_up(R);&move_down(R)}1 :- move_vehicule(R), &vertical_r(R).
 

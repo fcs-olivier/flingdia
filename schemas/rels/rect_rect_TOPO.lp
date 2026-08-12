@@ -72,77 +72,84 @@ invalid_relation_arg(&overlap_rr(R1,R2)) :- formula(spatial, &overlap_rr(R1,R2))
 %                                                             | +----+ |
 %                                                             +--------+
 
-% % Positive-area overlap: EC is excluded because inequalities are strict.
-% &sus{left_side(R1,T)}<right_side(R2,T)  :- true(&partialOverlap_rr(R1,R2),T), R1!=R2.
-% &sus{bottom(R1,T)}<top(R2,T)            :- true(&partialOverlap_rr(R1,R2),T), R1!=R2.
-% &sus{right_side(R1,T)}>left_side(R2,T)  :- true(&partialOverlap_rr(R1,R2),T), R1!=R2.
-% &sus{top(R1,T)}>bottom(R2,T)            :- true(&partialOverlap_rr(R1,R2),T), R1!=R2.
+% Positive-area overlap: EC is excluded because inequalities are strict.
+&sus{left_side(R1,T)}<right_side(R2,T)  :- true(&partialOverlap_rr(R1,R2),T), R1!=R2.
+&sus{bottom(R1,T)}<top(R2,T)            :- true(&partialOverlap_rr(R1,R2),T), R1!=R2.
+&sus{right_side(R1,T)}>left_side(R2,T)  :- true(&partialOverlap_rr(R1,R2),T), R1!=R2.
+&sus{top(R1,T)}>bottom(R2,T)            :- true(&partialOverlap_rr(R1,R2),T), R1!=R2.
 
-% % R1 must stick out of R2 in at least one direction.
-% po_left_out_rr(R1,R2,T)|
-%     po_right_out_rr(R1,R2,T)|
-%     po_bottom_out_rr(R1,R2,T)|
-%     po_top_out_rr(R1,R2,T) :-  true(&partialOverlap_rr(R1,R2),T), R1!=R2.
+% R1 must stick out of R2 in at least one direction.
+po_left_out_rr(R1,R2,T)|
+    po_right_out_rr(R1,R2,T)|
+    po_bottom_out_rr(R1,R2,T)|
+    po_top_out_rr(R1,R2,T) :-  true(&partialOverlap_rr(R1,R2),T), R1!=R2.
 
-% % R2 must also stick out of R1 in at least one direction.
-% % This excludes proper-part cases.
-% po_left_out_rr(R2,R1,T)|
-%     po_right_out_rr(R2,R1,T)|
-%     po_bottom_out_rr(R2,R1,T)|
-%     po_top_out_rr(R2,R1,T) :-  true(&partialOverlap_rr(R1,R2),T), R1!=R2.
+% R2 must also stick out of R1 in at least one direction.
+% This excludes proper-part cases.
+po_left_out_rr(R2,R1,T)|
+    po_right_out_rr(R2,R1,T)|
+    po_bottom_out_rr(R2,R1,T)|
+    po_top_out_rr(R2,R1,T) :-  true(&partialOverlap_rr(R1,R2),T), R1!=R2.
 
-% &sus{left_side(R1,T)}<left_side(R2,T)   :- po_left_out_rr(R1,R2,T).
-% &sus{right_side(R1,T)}>right_side(R2,T) :- po_right_out_rr(R1,R2,T).
-% &sus{bottom(R1,T)}<bottom(R2,T)         :- po_bottom_out_rr(R1,R2,T).
-% &sus{top(R1,T)}>top(R2,T)               :- po_top_out_rr(R1,R2,T).
+&sus{left_side(R1,T)}<left_side(R2,T)   :- po_left_out_rr(R1,R2,T).
+&sus{right_side(R1,T)}>right_side(R2,T) :- po_right_out_rr(R1,R2,T).
+&sus{bottom(R1,T)}<bottom(R2,T)         :- po_bottom_out_rr(R1,R2,T).
+&sus{top(R1,T)}>top(R2,T)               :- po_top_out_rr(R1,R2,T).
 
-% % Other direction
-% % R1 sticks out of R2.
-% out_rr(R1,R2,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
-%                  &sus{left_side(R1,T)}<left_side(R2,T), time(T).
+% Other direction
+% R1 sticks out of R2.
+out_rr(R1,R2,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
+                 &sus{left_side(R1,T)}<left_side(R2,T), time(T).
 
-% out_rr(R1,R2,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
-%                  &sus{right_side(R1,T)}>right_side(R2,T), time(T).
+out_rr(R1,R2,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
+                 &sus{right_side(R1,T)}>right_side(R2,T), time(T).
 
-% out_rr(R1,R2,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
-%                  &sus{bottom(R1,T)}<bottom(R2,T), time(T).
+out_rr(R1,R2,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
+                 &sus{bottom(R1,T)}<bottom(R2,T), time(T).
 
-% out_rr(R1,R2,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
-%                  &sus{top(R1,T)}>top(R2,T), time(T).
+out_rr(R1,R2,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
+                 &sus{top(R1,T)}>top(R2,T), time(T).
 
-% % R2 sticks out of R1, still guarded by the original formula orientation.
-% % This is the critical symmetric check.
-% out_rr(R2,R1,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
-%                  &sus{left_side(R2,T)}<left_side(R1,T), time(T).
+% R2 sticks out of R1, still guarded by the original formula orientation.
+% This is the critical symmetric check.
+out_rr(R2,R1,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
+                 &sus{left_side(R2,T)}<left_side(R1,T), time(T).
 
-% out_rr(R2,R1,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
-%                  &sus{right_side(R2,T)}>right_side(R1,T), time(T).
+out_rr(R2,R1,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
+                 &sus{right_side(R2,T)}>right_side(R1,T), time(T).
 
-% out_rr(R2,R1,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
-%                  &sus{bottom(R2,T)}<bottom(R1,T), time(T).
+out_rr(R2,R1,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
+                 &sus{bottom(R2,T)}<bottom(R1,T), time(T).
 
-% out_rr(R2,R1,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
-%                  &sus{top(R2,T)}>top(R1,T), time(T).
+out_rr(R2,R1,T) :- formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
+                 &sus{top(R2,T)}>top(R1,T), time(T).
 
-
-% true(&partialOverlap_rr(R1,R2),T) :-
-%     formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
-%     % positive-area overlap
-%     &sus{left_side(R1,T)}<right_side(R2,T),
-%     &sus{bottom(R1,T)}<top(R2,T),
-%     &sus{right_side(R1,T)}>left_side(R2,T),
-%     &sus{top(R1,T)}>bottom(R2,T),
-%     % neither rectangle is part of the other
-%     out_rr(R1,R2,T),
-%     out_rr(R2,R1,T),
-%     time(T).
+% Tie each disjunctive case to its actual geometric witness; otherwise an
+% unrelated case could be selected solely to provide support for parameters.
+po_left_out_rr(R1,R2,T)   :- out_rr(R1,R2,T), &sus{left_side(R1,T)}<left_side(R2,T).
+po_right_out_rr(R1,R2,T)  :- out_rr(R1,R2,T), &sus{right_side(R1,T)}>right_side(R2,T).
+po_bottom_out_rr(R1,R2,T) :- out_rr(R1,R2,T), &sus{bottom(R1,T)}<bottom(R2,T).
+po_top_out_rr(R1,R2,T)    :- out_rr(R1,R2,T), &sus{top(R1,T)}>top(R2,T).
 
 
-% invalid_relation_arg(&partialOverlap_rr(R1,R2)) :-
-%     formula(spatial, &partialOverlap_rr(R1,R2)),
-%     #count { valid_arg_1 : true(rect(R1),T);
-%              valid_arg_2 : true(rect(R2),T) } != 2,
-%     time(T).
+true(&partialOverlap_rr(R1,R2),T) :-
+    formula(spatial, &partialOverlap_rr(R1,R2)), R1!=R2,
+    % positive-area overlap
+    &sus{left_side(R1,T)}<right_side(R2,T),
+    &sus{bottom(R1,T)}<top(R2,T),
+    &sus{right_side(R1,T)}>left_side(R2,T),
+    &sus{top(R1,T)}>bottom(R2,T),
+    % neither rectangle is part of the other
+    out_rr(R1,R2,T),
+    out_rr(R2,R1,T),
+    time(T).
+
+
+invalid_relation_arg(&partialOverlap_rr(R1,R2)) :-
+    formula(spatial, &partialOverlap_rr(R1,R2)),
+    #count { valid_arg_1 : true(rect(R1),T);
+             valid_arg_2 : true(rect(R2),T) } != 2,
+    time(T).
 
 %%%%%%%%%%%%%%% ntpp_rr (NTPP) %%%%%%%%%%%%%
 % TRUE cases:  NTPP
