@@ -4,7 +4,9 @@ metasp solve flingo --meta-config config.yaml \
                     instances/ST/fox_goose_beans.lp  1 \
                     -c display_time=20  \
                     --project=show \
-                    -c n=17
+                    -c n=17 \
+                    -t 4 \
+                    --configuration=trendy
 *%
 
 % n<=16  UNSAT, from 17 it works and this is the faster  (16 is slower)

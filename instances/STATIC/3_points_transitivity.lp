@@ -6,8 +6,7 @@ metasp solve flingo --meta-config config.yaml \
                     -c display_time=7  
 *%
 
-
-%&partial.
+&df. 
 point(a;b;c). 
 &left_pp(a,b).
 &left_pp(b,c).

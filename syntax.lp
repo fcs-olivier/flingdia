@@ -24,6 +24,7 @@
     &partial/0;
     &inertia/0;
     &df/0;
+    &not_inertia/0;
 
     % Numerical atoms
     &eq/2: {type: atom, safety: safe; type: symbol, safety: safe;};

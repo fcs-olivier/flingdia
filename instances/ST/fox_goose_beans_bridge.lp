@@ -4,8 +4,13 @@ metasp solve flingo --meta-config config.yaml \
                     instances/ST/fox_goose_beans_bridge.lp  1 \
                     -c display_time=6  \
                     --project=show \
-                    -c n=5
+                    -c n=5 \
+                    -t 4 \
+                    --configuration=trendy
 *%
+
+&df :- &initial.
+&inertia.
 
 %%%% 4 facts below added for the bridge, + add option bridge with boat and bank in the rule below. That's it. 
 rect(bridge).
