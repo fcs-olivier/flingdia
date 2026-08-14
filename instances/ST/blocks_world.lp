@@ -7,7 +7,6 @@ metasp solve flingo --meta-config config.yaml \
                     -c n=5 
 *%
 
-&inertia.
 
 block(a;b;c).
 rect(table;B):- block(B).

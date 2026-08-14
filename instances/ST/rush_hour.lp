@@ -4,9 +4,9 @@ metasp solve flingo --meta-config config.yaml \
                     instances/ST/rush_hour.lp  1 \
                     -c display_time=7  \
                     --project=show \
-                    -c n=5 \
+                    -c n=12 \
                     -c xmax=6 \
-                    -c ymax=6 
+                    -c ymax=6 ok
 
 % use this command as long as the seed bug is not fixed. 
 
