@@ -1,22 +1,28 @@
-
-
-%%%%%%%%%  RECT-LINE  %%%%%%%%%%%%%
-%%%%%%%%%%%%%%% on_rl  %%%%%%%%%%%%% 
-% TRUE: line longer than base        TRUE: line same length as base
-% 3 | .   .   .   .                  3 | .   .   .   .
-% 2 | .   +-------+                  2 | .   +-------+
-% 1 | .   |       |                  1 | .   |       |
-% 0 | S---+-------+---E              0 | .   S-------E
-%   +----------------                  +----------------
-%     0   1   2   3  x                  0   1   2   3  x
-
-% FALSE: line too short              FALSE: line is not horizontal     FALSE: line not horizontal
-% 3 | .   .   .   .                  3 | .   .   .   .                  3 | .   .   E   .
-% 2 | .   +-------+                  2 | .   E-------+                  2 | .   +-------+
-% 1 | .   |       |                  1 | .   |       |                  1 | .   | /     |
-% 0 | S---+---E   +                  0 | .   S-------+                  0 | .   S-------+
-%   +----------------                  +----------------                  +----------------
-%     0   1   2   3  x                  0   1   2   3  x                  0   1   2   3  x
+%# Rectangle-line relations
+%
+%## `&on_rl`
+%
+% True: line longer than base; line same length as base.
+%
+%```text
+% 3 | .   .   .   .    3 | .   .   .   .
+% 2 | .   +-------+    2 | .   +-------+
+% 1 | .   |       |    1 | .   |       |
+% 0 | S---+-------+---E  0 | .   S-------E
+%   +----------------    +----------------
+%     0   1   2   3  x     0   1   2   3  x
+%```
+%
+% False: line too short; line is not horizontal; line not horizontal.
+%
+%```text
+% 3 | .   .   .   .    3 | .   .   .   .    3 | .   .   E   .
+% 2 | .   +-------+    2 | .   E-------+    2 | .   +-------+
+% 1 | .   |       |    1 | .   |       |    1 | .   | /     |
+% 0 | S---+---E   +    0 | .   S-------+    0 | .   S-------+
+%   +----------------    +----------------    +----------------
+%     0   1   2   3  x     0   1   2   3  x     0   1   2   3  x
+%```
 
 &sus{xstart(L2,K)}<= left_side(R1,K) :- true(&on_rl(R1,L2),K).
 &sus{xend(L2,K)}>= right_side(R1,K) :- true(&on_rl(R1,L2),K).

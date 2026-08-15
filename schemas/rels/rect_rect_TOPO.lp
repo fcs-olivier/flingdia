@@ -1,11 +1,11 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  RECT-RECT  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%# Rectangle-rectangle topology relations
+%
 % NOTE: no need to use compound relations here since the rels are entirely fixed (no change possible).
-% NOTE: the inverse relations are not useful and therefore not defined here. 
-
-%%%%%%%%%%%%%% TOPOLOGY %%%%%%%%%%%%%                                   
+% NOTE: the inverse relations are not useful and therefore not defined here.
+%
+% Topology lattice:
+%
+%```text
 %                                     C -----+            DR (rcc5)
 %                                     |       \           |  \
 %                          +--------- O        \          |   \
@@ -20,23 +20,30 @@
 %                  |      /     \     \/    /     \     \ |     |
 %            (rcc5)PO    TPP   NTPP   EQ  NTPPi   TPPi   EC     DC
 %                                   (rcc5)
-
-
-%%%%%%%%%%%%%%% overlap_rr (O) (this is not partial overlap) %%%%%%%%%%%%%
-% TRUE cases:  PO   TPP     NTPP         EQ        NTPPi        TPPi
+%```
+%
+%## `&overlap_rr` (O, not partial overlap)
+%
+% True cases: PO, TPP, NTPP, EQ, NTPPi, TPPi.
+%
+%```text
 % +----+      +--------+   +--------+   +------+    +--------+   +--------+
 % | R1 |      | R2     |   |   R2   |   |R1=R2 |    |   R1   |   |   R1   |
 % |  +-+--+   |+----+  |   | +----+ |   |      |    | +----+ |   | +----+ |
 % +--+-+R2|   || R1 |  |   | | R1 | |   +------+    | | R2 | |   | | R2 ||
 %    +----+   |+----+  |   | +----+ |               | +----+ |   | +----+|
 %             +--------+   +--------+               +--------+   +--------+
+%```
 %
-% FALSE cases:  DC    EC
+% False cases: DC, EC.
+%
+%```text
 % +----+   +----+        +----++----+          +----+
 % | R1 |   | R2 |        | R1 || R2 |          | R1 |
 % +----+   +----+        +----++----+          +----++----+
 %                                                    | R2 |
 %                                                    +----+
+%```
 
 &sus{left_side(R1,T)}<right_side(R2,T)  :- true(&overlap_rr(R1,R2),T), R1!=R2.
 &sus{bottom(R1,T)}<top(R2,T)            :- true(&overlap_rr(R1,R2),T), R1!=R2.
@@ -54,23 +61,30 @@ invalid_relation_arg(&overlap_rr(R1,R2)) :- formula(spatial, &overlap_rr(R1,R2))
                                                  valid_arg_2 : true(rect(R2),T)} != 2,
                                                  time(T).
 
-%%%%%%%%%%%%%%% partialOverlap_rr (PO) %%%%%%%%%%%%%
+%## `&partialOverlap_rr` (PO)
+%
 % Positive-area overlap, but neither rectangle is part of the other.
 %
-% TRUE:   PO
+% True: PO.
+%
+%```text
 % +----+
 % | R1 |
 % |  +-+----+
 % +--+-+ R2 |
 %    +------+
+%```
 %
-% FALSE: disconnected        externally connected       proper part
+% False: disconnected; externally connected; proper part.
+%
+%```text
 % +----+   +----+            +----++----+                     +--------+
 % | R1 |   | R2 |            | R1 || R2 |                     |   R2   |
 % +----+   +----+            +----++----+                     | +----+ |
 %                                                             | | R1 | |
 %                                                             | +----+ |
 %                                                             +--------+
+%```
 
 % Positive-area overlap: EC is excluded because inequalities are strict.
 &sus{left_side(R1,T)}<right_side(R2,T)  :- true(&partialOverlap_rr(R1,R2),T), R1!=R2.
@@ -151,14 +165,18 @@ invalid_relation_arg(&partialOverlap_rr(R1,R2)) :-
              valid_arg_2 : true(rect(R2),T) } != 2,
     time(T).
 
-%%%%%%%%%%%%%%% ntpp_rr (NTPP) %%%%%%%%%%%%%
-% TRUE cases:  NTPP
+%## `&ntpp_rr` (NTPP)
+%
+% True cases: NTPP.
+%
+%```text
 %  +--------+
 %  |   R2   |
 %  | +----+ |
 %  | | R1 | |
 %  | +----+ |
 %  +--------+
+%```
 
 &sus{left_side(R1,T)}>left_side(R2,T)   :- true(&ntpp_rr(R1,R2),T), R1!=R2.
 &sus{right_side(R1,T)}<right_side(R2,T) :- true(&ntpp_rr(R1,R2),T), R1!=R2.
@@ -176,13 +194,15 @@ invalid_relation_arg(&ntpp_rr(R1,R2)) :- formula(spatial, &ntpp_rr(R1,R2)), R1!=
                                          #count {valid_arg_1 : true(rect(R1),T);
                                                  valid_arg_2 : true(rect(R2),T)} != 2,
                                                  time(T).
-
-
-%%%%%%%%%%%%%%% disconnected_rr (DC) %%%%%%%%%%%%%
-% TRUE cases:  DC         FALSE cases:  EC
+%## `&disconnected_rr` (DC)
+%
+% True cases: DC; false cases: EC.
+%
+%```text
 % +----+   +----+        +----++----+
 % | R1 |   | R2 |        | R1 || R2 |
-% +----+   +----+        +----++----+                               
+% +----+   +----+        +----++----+
+%```
 
 c1_disconnected_rr(R1,R2,T)| 
   c2_disconnected_rr(R1,R2,T)| 
@@ -208,13 +228,15 @@ invalid_relation_arg(&disconnected_rr(R1,R2)) :- formula(spatial, &disconnected_
                                          #count {valid_arg_1 : true(rect(R1),T);
                                                  valid_arg_2 : true(rect(R2),T)} != 2,
                                                  time(T).
-
-
-%%%%%%%%%%%%%%% discrete_rr (DC) %%%%%%%%%%%%%
-% TRUE cases:  DC         EC
+%## `&discrete_rr` (DC)
+%
+% True cases: DC, EC.
+%
+%```text
 %    +----+   +----+        +----++----+
 %    | R1 |   | R2 |        | R1 || R2 |
-%    +----+   +----+        +----++----+                               
+%    +----+   +----+        +----++----+
+%```
 
 c1_discrete_rr(R1,R2,T)| 
   c2_discrete_rr(R1,R2,T)| 
@@ -236,12 +258,16 @@ invalid_relation_arg(&discrete_rr(R1,R2)) :- formula(spatial, &discrete_rr(R1,R2
                                                  valid_arg_2 : true(rect(R2),T)} != 2,
                                                  time(T).
 
-%%%%%%%%%%%%%%% equal_rr (EQ) %%%%%%%%%%%%%
-% TRUE cases:  EQ
+%## `&equal_rr` (EQ)
+%
+% True cases: EQ.
+%
+%```text
 %  +----+
 %  | R1 |
 %  | R2 |
 %  +----+
+%```
 
 &sus{right_side(R1,T)}=right_side(R2,T):- true(&equal_rr(R1,R2),T), R1!=R2. 
 &sus{left_side(R1,T)}=left_side(R2,T)  :- true(&equal_rr(R1,R2),T), R1!=R2.
@@ -259,16 +285,18 @@ invalid_relation_arg(&equal_rr(R1,R2)) :- formula(spatial, &equal_rr(R1,R2)), R1
                                                  valid_arg_2 : true(rect(R2),T)} != 2,
                                                  time(T).
 
-%%%%%%%%%%%%%%% properPart_rr (PP) %%%%%%%%%%%%%
-% TRUE cases:  NTPP     TPP                     FALSE case : EQ
+%## `&properPart_rr` (PP)
+%
+% True cases: NTPP, TPP; false case: EQ.
+%
+%```text
 %     +--------+      +--------+                   +----+
 %     | R2     |      |   R2   |                   | R1 |
 %     |+----+  |      | +----+ |                   |    |
 %     || R1 |  |      | | R1 | |                   | R2 |
 %     |+----+  |      | +----+ |                   +----+
-%     +--------+      +--------+                   
-
-
+%     +--------+      +--------+
+%```
 &sus{left_side(R1,T)}>=left_side(R2,T)                 :- true(&properPart_rr(R1,R2),T), R1!=R2. 
 &sus{right_side(R1,T)}<=right_side(R2,T)               :- true(&properPart_rr(R1,R2),T), R1!=R2.
 &sus{bottom(R1,T)}>=bottom(R2,T)                       :- true(&properPart_rr(R1,R2),T), R1!=R2.
@@ -299,26 +327,30 @@ invalid_relation_arg(&properPart_rr(R1,R2)) :- formula(spatial, &properPart_rr(R
                                          #count {valid_arg_1 : true(rect(R1),T);
                                                  valid_arg_2 : true(rect(R2),T)} != 2,
                                                  time(T).
-
-
-
-%%%%%%%%%%%%%%% extConnected_rr (EC) %%%%%%%%%%%%%
+%## `&extConnected_rr` (EC)
+%
 % Boundary contact, but no interior overlap.
 %
-% TRUE: shared side                    corner contact
+% True: shared side; corner contact.
+%
+%```text
 % +----++----+                         +----+
 % | R1 || R2 |                         | R1 |
 % +----++----+                         +----+----+
 %                                           | R2 |
 %                                           +----+
+%```
 %
-% FALSE: disconnected        partial overlap              proper part
+% False: disconnected; partial overlap; proper part.
+%
+%```text
 % +----+   +----+            +----+                       +--------+
 % | R1 |   | R2 |            | R1 |                       |   R2   |
 % +----+   +----+            |  +-+----+                  | +----+ |
 %                            +--+-+ R2 |                  | | R1 | |
 %                               +------+                  | +----+ |
 %                                                         +--------+
+%```
 
 c1_extConnected_rr(R1,R2,T)|
     c2_extConnected_rr(R1,R2,T)|

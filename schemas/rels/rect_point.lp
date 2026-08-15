@@ -1,18 +1,24 @@
-
-%%%%%%%%%%  RECTANGLE-POINT  %%%%%%%%%%%%%
-
-%%%%%%%%%%%% touches_rp  %%%%%%%%%%%%%
-% TRUE: point on the boundary of the rectangle
-%    +---------+                   +----*----+
-%    |         | R                 |         | R
-%    *P        |                   |         |
-%    +---------+                   +---------+
+%# Rectangle-point relations
 %
-% FALSE: strictly inside             FALSE: outside
-%    +---------+                   +---------+
-%    |    *P   | R                 |         | R
-%    |         |                   |         |    *P
-%    +---------+                   +---------+
+%## `&touches_rp`
+%
+% True: point on the boundary of the rectangle.
+%
+%```text
+%    +---------+    +----*----+
+%    |         | R  |         | R
+%    *P        |    |         |
+%    +---------+    +---------+
+%```
+%
+% False: strictly inside; outside.
+%
+%```text
+%    +---------+    +---------+
+%    |    *P   | R  |         | R
+%    |         |    |         |    *P
+%    +---------+    +---------+
+%```
 
 % Closed containment.
 &sus{x(P2,K)}>=left_side(R1,K)  :- true(&touches_rp(R1,P2),K).

@@ -1,11 +1,10 @@
-
-
-%%%%%%%%%  POINT  %%%%%%%%%%%%%
-
-
-
-%%%%%%% rightmost_p %%%%%%%%%%%%%
-% TRUE cases for P1: 
+%# Point relations
+%
+%## `&rightmost_p`
+%
+% True cases for `P1`:
+%
+%```text
 % y                      y                                       y
 % 3 | .   .   P3  .      3 | .   .   .   .                       3 | .   .   .   .
 % 2 | .   .   .   .      2 | .   .   .   .                       2 | .   .   .   .
@@ -13,6 +12,7 @@
 % 0 | .   .   .   .      0 | .   .   .   .                       0 | .   .   .   .
 %   +----------------      +----------------                       +----------------
 %     0   1   2   3  x       0   1   2   3  x                        0   1   2   3  x
+%```
 
 :- true(&rightmost_p(P1),K), 
    #count{P2 : true(&right_pp(P2,P1),K), 
@@ -28,10 +28,11 @@ formula(spatial, &right_pp(P2,P1)) :- formula(spatial, &rightmost_p(P1)), true(p
 invalid_relation_arg(&rightmost_p(P1)) :- formula(spatial, &rightmost_p(P1)),
                                          #count {valid_arg_1 : true(point(P1),K)} != 1,
                                          time(K).
-
-
-%%%%%%% leftmost_p  %%%%%%%%%%%%%
-% TRUE cases for P1: 
+%## `&leftmost_p`
+%
+% True cases for `P1`:
+%
+%```text
 % y                      y                                       y
 % 3 | .   .   P3  .      3 | .   .   .   .                       3 | .   .   .   .
 % 2 | .   .   .   .      2 | .   .   .   .                       2 | .   .   .   .
@@ -39,6 +40,7 @@ invalid_relation_arg(&rightmost_p(P1)) :- formula(spatial, &rightmost_p(P1)),
 % 0 | .   .   .   .      0 | .   .   .   .                       0 | .   .   .   .
 %   +----------------      +----------------                       +----------------
 %     0   1   2   3  x       0   1   2   3  x                        0   1   2   3  x
+%```
 
 :- true(&leftmost_p(P1),K), #count{P2 : true(&left_pp(P2,P1),K), true(point(P2),K)}!=0.
 
