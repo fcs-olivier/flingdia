@@ -26,8 +26,8 @@
 <text x="26" y="15">y</text>
 <circle cx="70" cy="150" r="4" fill="#16a34a"/>
 <text x="77" y="143" fill="#16a34a">P1</text>
-<circle cx="110" cy="70" r="4" fill="black"/>
-<text x="117" y="63" fill="black">P2</text>
+<circle cx="150" cy="150" r="4" fill="black"/>
+<text x="157" y="143" fill="black">P2</text>
 <line class="grid" x1="240" y1="30" x2="240" y2="190"/>
 <line class="grid" x1="240" y1="190" x2="400" y2="190"/>
 <text x="240" y="210" text-anchor="middle">0</text>
@@ -52,10 +52,10 @@
 <line class="axis" x1="240" y1="190" x2="240" y2="20"/>
 <text x="418" y="194">x</text>
 <text x="236" y="15">y</text>
-<circle cx="280" cy="150" r="4" fill="#16a34a"/>
-<text x="287" y="143" fill="#16a34a">P1</text>
-<circle cx="360" cy="150" r="4" fill="black"/>
-<text x="367" y="143" fill="black">P2</text>
+<circle cx="320" cy="110" r="4" fill="#16a34a"/>
+<text x="327" y="103" fill="#16a34a">P1</text>
+<circle cx="320" cy="110" r="4" fill="black"/>
+<text x="327" y="124" fill="black">P2</text>
 <line class="grid" x1="450" y1="30" x2="450" y2="190"/>
 <line class="grid" x1="450" y1="190" x2="610" y2="190"/>
 <text x="450" y="210" text-anchor="middle">0</text>
@@ -80,8 +80,8 @@
 <line class="axis" x1="450" y1="190" x2="450" y2="20"/>
 <text x="628" y="194">x</text>
 <text x="446" y="15">y</text>
-<circle cx="570" cy="150" r="4" fill="#dc2626"/>
-<text x="577" y="143" fill="#dc2626">P1</text>
-<circle cx="490" cy="150" r="4" fill="black"/>
-<text x="497" y="143" fill="black">P2</text>
+<circle cx="490" cy="150" r="4" fill="#dc2626"/>
+<text x="497" y="143" fill="#dc2626">P1</text>
+<circle cx="490" cy="70" r="4" fill="black"/>
+<text x="497" y="63" fill="black">P2</text>
 </svg>

@@ -72,6 +72,9 @@ markdown_extensions:
   - toc:
       permalink: true
 
+extra_css:
+  - assets/nav.css
+
 plugins:
   - search
   - autorefs

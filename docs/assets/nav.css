@@ -1,0 +1,18 @@
+/* Keep the left nav fully expanded; hide fold controls. */
+.md-nav--primary .md-nav__toggle ~ .md-nav {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.md-nav--primary .md-nav__toggle ~ .md-nav > .md-nav__list {
+  overflow: visible;
+}
+
+.md-nav--primary .md-nav__item--nested > .md-nav__link {
+  pointer-events: none;
+  cursor: default;
+}
+
+.md-nav--primary .md-nav__item--nested .md-nav__icon {
+  display: none;
+}

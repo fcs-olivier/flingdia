@@ -36,12 +36,27 @@ for case_index, case in enumerate(spec["cases"]):
         f'<text x="{left - 4}" y="15">y</text>',
     ])
     colors = spec.get("colors", {})
-    for name, (x, y) in case.items():
+    true_color = colors.get("true", "#16a34a")
+    false_color = colors.get("false", "#dc2626")
+    subject = spec.get("subject", "P1")
+    holds = case.get("holds", True)
+    points = [(name, coords) for name, coords in case.items() if name != "holds"]
+    coincident = {}
+    for name, (x, y) in points:
+        coincident.setdefault((x, y), []).append(name)
+    for name, (x, y) in points:
         px, py = left + x * 40, bottom - y * 40
-        color = html.escape(colors.get(name, "black"))
+        if name == subject:
+            color = html.escape(true_color if holds else false_color)
+        else:
+            color = "black"
+        siblings = coincident[(x, y)]
+        label_dx, label_dy = 7, -7
+        if len(siblings) > 1 and siblings.index(name) == 1:
+            label_dx, label_dy = 7, 14
         svg.extend([
             f'<circle cx="{px}" cy="{py}" r="4" fill="{color}"/>',
-            f'<text x="{px + 7}" y="{py - 7}" fill="{color}">{html.escape(name)}</text>',
+            f'<text x="{px + label_dx}" y="{py + label_dy}" fill="{color}">{html.escape(name)}</text>',
         ])
 
 svg.append("</svg>")
