@@ -37,6 +37,7 @@ theme:
   features:
     - navigation.indexes
     - navigation.tracking
+    - navigation.expand
     - toc.follow
     - content.code.copy
   palette:

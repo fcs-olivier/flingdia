@@ -56,20 +56,12 @@ Args:
 %
 % True cases for `P1`:
 %
-%```text
-% y                     y                     y
-% 3 | .   .   P2  .    3 | .   .   .   .    3 | .   .   .   .
-% 2 | .   .   .   .    2 | .   .   .   .    2 | .   .   .   .
-% 1 | .   P1  .   .    1 | .   P1  .   P2   1 | .   .   .   .
-% 0 | .   .   .   .    0 | .   .   .   .    0 | .   .   .   .
-%   +----------------    +----------------    +----------------
-%     0   1   2   3  x     0   1   2   3  x     0   1   2   3  x
-%```
+%![Examples of left_pp](../../assets/relations/left_pp.svg)
 &sus{x(P1,K)} < x(P2,K) :- true(&left_pp(P1,P2),K).
                  
 true(&left_pp(P1,P2),K) :- formula(spatial, &left_pp(P1,P2)), P1!=P2, &sus{x(P1,K)} < x(P2,K), time(K).
                          
-                         
+
 invalid_relation_arg(&left_pp(P1,P2)) :- formula(spatial, &left_pp(P1,P2)),
                                          #count {valid_arg_1 : true(point(P1),K);
                                                  valid_arg_2 : true(point(P2),K)} != 2, 
