@@ -1,9 +1,10 @@
 ::: schemas/rels/point_point.lp
     handler: asp
     options:
-        glossary: false
+        glossary: 
+            include_references: true
         predicate_table: false
-        encodings:
-            source: false
-            include_title: false
+        predicate_info:
+            include_undocumented: false
+        encodings: false
         start_level: 1
