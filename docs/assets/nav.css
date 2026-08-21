@@ -16,3 +16,21 @@
 .md-nav--primary .md-nav__item--nested .md-nav__icon {
   display: none;
 }
+
+/* Emphasize predicate signatures in rendered ASP encodings. */
+.asp-doc h3 code {
+  font-size: inherit;
+  font-weight: 700;
+}
+
+/* Visually separate the right-hand table-of-contents label from its links. */
+.md-sidebar--secondary {
+  width: 8rem;
+}
+
+.md-sidebar--secondary .md-nav__title {
+  border-bottom: 1px solid var(--md-default-fg-color--lighter);
+  color: var(--md-primary-fg-color);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
