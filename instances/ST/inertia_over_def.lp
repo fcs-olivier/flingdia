@@ -7,8 +7,7 @@ metasp solve flingo --meta-config config.yaml \
                     -c n=2 
 *%
 
-% &df:-&initial.
-% &inertia.
+% recall that implicit axioms about definedness and inertia are added by default (axioms.lp)
 
 
 % 1) We declare the objects
@@ -29,7 +28,7 @@ rect(a;b).
 :- not &next(&on_rr(a,b)), &initial.
 :- not &right_rr(a,b), &final.
 
-% 5) Of course we have to enable rects to 'move' if the rels must be constructively satisfied. 
+% 5) We have to enable rects to 'move' if the rels in 4' must be constructively satisfied. 
 {&move(R): rect(R)}1.
 
 

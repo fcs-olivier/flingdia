@@ -9,7 +9,7 @@ metasp solve flingo --meta-config config.yaml \
                     --configuration=trendy
 *%
 
-% n=12 seams to be the fastest (11 seems slower, at 10 it is unsat)
+% n=12 seems to be the fastest (11 seems slower, at 10 it is unsat)
 % inEq is containmnent for items in the boat only (on banks, items are strictly contained)
 point(I) :- item(I).                    item(farmer;fox;goose;beans).
 rect(boat;river;bank(B)):- bank(B).     bank(near;far).
@@ -19,6 +19,12 @@ rect(boat;river;bank(B)):- bank(B).     bank(near;far).
 &disconnected_rr(bank(near),bank(far)):- &initial.
 &properPart_rr(boat,river):- &initial.
 &in_pr(I,bank(near)):- &initial, item(I).
+
+% banks must remain connected to the river and disconnected from each other
+% TODO: normally these are straightforward derived relations by inertia, but adding them explicitly improves the performance. 
+:- not &extConnected_rr(bank(near),river).
+:- not &extConnected_rr(bank(far),river).
+:- not &disconnected_rr(bank(near),bank(far)).
 
 % Define the dynamic
 {&move(I):item(I)}.        % All the items can move. 
@@ -38,7 +44,7 @@ rect(boat;river;bank(B)):- bank(B).     bank(near;far).
 % the boat can only carry two items
 :- #count{I : &inEq_pr(I,boat), item(I)}>2.
 
-% the goose+beans/fox+goose can stay alone without the farmer.
+% the goose+beans/fox+goose can't stay alone without the farmer.
 :- &in_pr(goose,bank(Bank)), &in_pr(beans,bank(Bank)), not &in_pr(farmer,bank(Bank)), bank(Bank).
 :- &in_pr(fox,bank(Bank)), &in_pr(goose,bank(Bank)), not &in_pr(farmer,bank(Bank)), bank(Bank).
 

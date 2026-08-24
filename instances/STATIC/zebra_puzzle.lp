@@ -18,7 +18,6 @@ metasp solve flingo --meta-config config.yaml \
 
 % Question: What nationality is the zebra’s owner?
 
-&df.
 %%%%%%%%%%%%%%%%%%%%%%%%%%  Sorts  %%%%%%%%%%%%%%%%%%%%%%%%%
 
 beverage(tea;milk;beer). 
@@ -96,9 +95,9 @@ isA(Person, person):- person(Person).
 &in_pr(zebra, blue).
 
 % The owner is the person located in the same house as the zebra.
-zebra_owner(Person) :-
-    person(Person), house(House),
-    &in_pr(Person, House), &in_pr(zebra, House).
+zebra_owner(Person) :- person(Person), house(House),
+                       &in_pr(Person, House), 
+                       &in_pr(zebra, House).
 
 
 

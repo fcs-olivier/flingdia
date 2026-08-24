@@ -13,7 +13,6 @@ true(&inertia, 0) :- not true(&not_inertia, 0).
 % 0) POINT : Parameters :
 %    x, y
 
-%%%%%%%%%%%%% POINTS %%%%%%%%%%%%%
 % 1) POINT : All parameters defined
 &in{xmin..xmax}=:x(P,K) :- true(point(P),K), true(&df, K).
 &in{ymin..ymax}=:y(P,K) :- true(point(P),K), true(&df, K).
