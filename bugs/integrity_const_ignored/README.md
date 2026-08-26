@@ -119,3 +119,19 @@ Force registration via nested `&not`:
 Alternatively, make the arguments head-true propositional atoms (e.g. facts
 `a.` `b.`) so the external guards succeed — but that couples object identity to
 ASP atoms in a way the schema does not otherwise require.
+
+
+## Github issue
+This program should be `UNSATISFIABLE`, since `a` is left of `b`, but returns `SATISFIABLE`:
+
+```
+point(a;b).
+&eq(x(a),0). &eq(y(a),0).
+&eq(x(b),1). &eq(y(b),0).
+:- &left_pp(a,b).
+```
+This is potentially caused by the transformation generating:
+```
+#external &left_pp(a,b) : a, b.
+```
+Since `a` and `b` are constants rather than true propositional atoms, the external is never enabled and the constraint becomes ineffective.
