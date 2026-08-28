@@ -2,7 +2,7 @@
 metasp solve flingo --meta-config config.yaml \
                     --warn=no-atom-undefined \
                     --project=show \
-                    instances/ST/blocks_world.lp  0 \
+                    instances/TEMP/blocks_world.lp  0 \
                     -c display_time=7  \
                     -c n=5 
 *%

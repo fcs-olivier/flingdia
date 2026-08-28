@@ -1,0 +1,7 @@
+- investigate the possibility to define the super sort Obj. This would enable defining relations like "void_r". 
+  In fact, that should work if we had anonymous variable but we don't. 
+- Implement tests
+- Use logs instead of homemadae warnings. 
+- allow &eq(..., xlim)
+- Place actions between states in the python printer
+- Change all the K, T to I. 

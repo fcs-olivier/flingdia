@@ -73,6 +73,7 @@
     &leftmost_r/1:   {type: atom, safety: safe;};
     &horizontal_r/1: {type: atom, safety: safe;};
     &vertical_r/1:   {type: atom, safety: safe;};
+    &empty_r/1:      {type: atom, safety: safe;};
     
     % % rect_line
     &on_rl/2:        {type: atom, safety: safe; type: atom, safety: safe;};

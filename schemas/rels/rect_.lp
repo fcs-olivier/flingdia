@@ -45,3 +45,9 @@ true(&vertical_r(R),T) :- formula(spatial, &vertical_r(R)),
 
 invalid_relation_arg(&vertical_r(R)) :- formula(spatial, &vertical_r(R)), 
                                         #count { valid_arg_1 : true(rect(R),T) } != 1, time(T).
+
+
+
+
+                         
+
