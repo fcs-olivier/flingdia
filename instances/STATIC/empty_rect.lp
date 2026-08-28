@@ -9,22 +9,14 @@ metasp solve flingo --meta-config config.yaml \
                     --configuration=trendy
 *%
 
-point(a).
-rect(b;c). 
+point(a;b).
+rect(c;d). 
 
-%&empty_r(b).
+&disconnected_rr(c,d) :- &initial.
 
-%&properPart_rr(b,c).
-%&overlap_rr(b,c).
+&in_pr(a,c) :- &initial.
 
-ok :- &empty_r(b).
 
-&in_pr(a,b) :- &initial.
-&discrete_rr(b,c) :- &initial.
-
-:- not &in_pr(a,b).
-
-:- not &discrete_rr(b,c).
-
+{&move(a)}.
 
 
