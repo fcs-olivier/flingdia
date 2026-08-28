@@ -49,17 +49,7 @@ invalid_relation_arg(&vertical_r(R)) :- formula(spatial, &vertical_r(R)),
 
 
 %%%%%%% empty_r  %%%%%%%%%%
-% reimplemented overlap for rectangles
-
-c1_discrete_rr(R1,R2,T)| 
-  c2_discrete_rr(R1,R2,T)| 
-  c3_discrete_rr(R1,R2,T)|  
-  c4_discrete_rr(R1,R2,T) :- true(&empty_r(R1),T), true(rect(R2),T), R1!=R2, time(T).
-
-&sus{left_side(R1,T)}>=right_side(R2,T) :- c1_discrete_rr(R1,R2,T).
-&sus{bottom(R1,T)}>=top(R2,T)           :- c2_discrete_rr(R1,R2,T).
-&sus{right_side(R1,T)}<=left_side(R2,T) :- c3_discrete_rr(R1,R2,T).
-&sus{top(R1,T)}<=bottom(R2,T)           :- c4_discrete_rr(R1,R2,T).
+:- true(&empty_r(R1),T), not discrete_rr(R1,R2,T), true(rect(R2),T), R1!=R2, time(T).
 
 discrete_rr(R1,R2,T):- formula(spatial, &empty_r(R1)), true(rect(R2),T), &sus{left_side(R1,T)}>=right_side(R2,T), R1!=R2, time(T). 
 discrete_rr(R1,R2,T):- formula(spatial, &empty_r(R1)), true(rect(R2),T), &sus{bottom(R1,T)} >= top(R2,T), R1!=R2, time(T).
