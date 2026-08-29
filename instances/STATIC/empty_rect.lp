@@ -4,7 +4,7 @@ metasp solve flingo --meta-config config.yaml \
                     instances/STATIC/empty_rect.lp  0 \
                     -c display_time=7  \
                     --project=show \
-                    -c n=2 \
+                    -c n=4 \
                     -t 4 \
                     --configuration=trendy
 *%
@@ -12,12 +12,18 @@ metasp solve flingo --meta-config config.yaml \
 point(a;b).
 rect(c;d). 
 
-&disconnected_rr(c,d) :- &initial.
-
+&discrete_rr(c,d) :- &initial.
 &in_pr(a,c) :- &initial.
-ok :- &empty_r(d).
-hello.
+&out_pr(b,d) :- &initial.
 
-{&move(a)}.
+{&move(b)}.
+
+%ok :- &empty_r(R), rect(R).
+
+
+
+:- &final, &empty_r(R), rect(R).
+
+%:- &initial, &empty_r(R), rect(R), not &eventually(&in_pr(a,R)).
 
 

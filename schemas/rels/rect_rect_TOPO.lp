@@ -231,10 +231,10 @@ c2_discrete_rr(R1,R2,T):- formula(spatial, &discrete_rr(R1,R2)), &sus{bottom(R1,
 c3_discrete_rr(R1,R2,T):- formula(spatial, &discrete_rr(R1,R2)), &sus{right_side(R1,T)} <= left_side(R2,T), R1!=R2, time(T).
 c4_discrete_rr(R1,R2,T):- formula(spatial, &discrete_rr(R1,R2)), &sus{top(R1,T)} <= bottom(R2,T),           R1!=R2, time(T).
 
-true(&discrete_rr(R1,R2),T):- c1_discrete_rr(R1,R2,T).
-true(&discrete_rr(R1,R2),T):- c2_discrete_rr(R1,R2,T).
-true(&discrete_rr(R1,R2),T):- c3_discrete_rr(R1,R2,T).
-true(&discrete_rr(R1,R2),T):- c4_discrete_rr(R1,R2,T).
+true(&discrete_rr(R1,R2),T):- c1_discrete_rr(R1,R2,T), formula(spatial, &discrete_rr(R1,R2)).
+true(&discrete_rr(R1,R2),T):- c2_discrete_rr(R1,R2,T), formula(spatial, &discrete_rr(R1,R2)).
+true(&discrete_rr(R1,R2),T):- c3_discrete_rr(R1,R2,T), formula(spatial, &discrete_rr(R1,R2)).
+true(&discrete_rr(R1,R2),T):- c4_discrete_rr(R1,R2,T), formula(spatial, &discrete_rr(R1,R2)).
 
 invalid_relation_arg(&discrete_rr(R1,R2)) :- formula(spatial, &discrete_rr(R1,R2)), R1!=R2,
                                          #count {valid_arg_1 : true(rect(R1),T);
