@@ -43,6 +43,13 @@
     % line_
     &horizontal_l/1: {type: atom, safety: safe;};
     &vertical_l/1:   {type: atom, safety: safe;};
+    &diagonal_l/1:   {type: atom, safety: safe;};
+
+    % line_point
+    &startsAt_lp/2:  {type: atom, safety: safe; type: atom, safety: safe;};
+    &endsAt_lp/2:    {type: atom, safety: safe; type: atom, safety: safe;};
+    &fromTo_lpp/3:   {type: atom, safety: safe; type: atom, safety: safe; type: atom, safety: safe;};
+
 
     % point_
     &rightmost_p/1:  {type: atom, safety: safe;};

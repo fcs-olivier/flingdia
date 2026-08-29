@@ -40,4 +40,35 @@ invalid_relation_arg(&vertical_l(L)) :- formula(spatial, &vertical_l(L)),
                                          #count {valid_arg_1 : true(line(L),K)} != 1,
                                          time(K).
 
+%%%%%%%%%%%%%% diagonal_l  %%%%%%%%%%%%%
+% A diagonal line has slope 1 or -1. The two cases are kept explicit so that
+% asserting the relation provides founded support for the selected equality.
+
+
+% diagonal_pos_l(L,K) |
+% diagonal_neg_l(L,K) :- true(&diagonal_l(L),K).
+
+% &sus{(xend(L,K)-xstart(L,K))} = (yend(L,K)-ystart(L,K)) :- diagonal_pos_l(L,K).
+% &sus{(xend(L,K)-xstart(L,K))} = (ystart(L,K)-yend(L,K)) :- diagonal_neg_l(L,K).
+
+% diagonal_pos_l(L,K) :- formula(spatial, &diagonal_l(L)),
+%                        &sus{(xend(L,K)-xstart(L,K))} = (yend(L,K)-ystart(L,K)),
+%                        time(K).
+
+% diagonal_neg_l(L,K) :- formula(spatial, &diagonal_l(L)),
+%                        &sus{(xend(L,K)-xstart(L,K))} = (ystart(L,K)-yend(L,K)),
+%                        time(K).
+
+% true(&diagonal_l(L),K) :- formula(spatial, &diagonal_l(L)),
+%                           diagonal_pos_l(L,K),
+%                           time(K).
+
+% true(&diagonal_l(L),K) :- formula(spatial, &diagonal_l(L)),
+%                           diagonal_neg_l(L,K),
+%                           time(K).
+
+% invalid_relation_arg(&diagonal_l(L)) :- formula(spatial, &diagonal_l(L)),
+%                                         #count {valid_arg_1 : true(line(L),K)} != 1,
+%                                         time(K).
+
 

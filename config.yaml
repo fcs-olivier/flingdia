@@ -8,6 +8,7 @@ semantics-encoding:
   # All the schemas are in the geo_schema folders below.
   - "schemas/geo_sorts.lp"     # For geo sorts
   - "schemas/rels/line_.lp"     # For relations starting here
+  - "schemas/rels/line_point.lp"
   - "schemas/rels/point_.lp"
   - "schemas/rels/point_point.lp"
   - "schemas/rels/point_rect.lp"
