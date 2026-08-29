@@ -241,6 +241,7 @@ invalid_relation_arg(&discrete_rr(R1,R2)) :- formula(spatial, &discrete_rr(R1,R2
                                                  valid_arg_2 : true(rect(R2),T)} != 2,
                                                  time(T).
 
+
 %%%%%%%%%%%%%%% equal_rr (EQ) %%%%%%%%%%%%%
 % TRUE cases:  EQ
 %  +----+
