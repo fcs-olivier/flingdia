@@ -1,7 +1,7 @@
 %*
 metasp solve flingo --meta-config config.yaml \
                     --warn=no-atom-undefined \
-                    instances/STATIC/empty_rect.lp  0 \
+                    instances/TEMP/fill_empty_rect.lp  0 \
                     -c display_time=7  \
                     --project=show \
                     -c n=4 \

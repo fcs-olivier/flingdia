@@ -14,15 +14,15 @@
 %   +----------------      +----------------                       +----------------
 %     0   1   2   3  x       0   1   2   3  x                        0   1   2   3  x
 
-:- true(&rightmost_p(P1),K), 
-   #count{P2 : true(&right_pp(P2,P1),K), true(point(P2),K)}!=0.
+not_right_pp(P2,P1,K) :- true(&rightmost_p(P1),K), true(point(P2),K), P1!=P2.
 
-true(&rightmost_p(P1),K) :- formula(spatial, &rightmost_p(P1)), 
-                            #count{P2 : true(&right_pp(P2,P1),K), true(point(P2),K)}=0, 
-                            time(K).
+&sus{x(P1,K)} >= x(P2,K) :- not_right_pp(P2,P1,K).
 
-formula(spatial, &right_pp(P2,P1)) :- formula(spatial, &rightmost_p(P1)), true(point(P2),K), time(K). 
+not_right_pp(P2,P1,K) :- formula(spatial, &rightmost_p(P1)), true(point(P2),K), P1!=P2,
+                        &sus{x(P1,K)} >= x(P2,K), time(K).
 
+true(&rightmost_p(P1),K) :- formula(spatial, &rightmost_p(P1)), time(K),
+                           not_right_pp(P2,P1,K) : true(point(P2),K), P1!=P2.
 
 invalid_relation_arg(&rightmost_p(P1)) :- formula(spatial, &rightmost_p(P1)),
                                          #count {valid_arg_1 : true(point(P1),K)} != 1,
@@ -39,14 +39,15 @@ invalid_relation_arg(&rightmost_p(P1)) :- formula(spatial, &rightmost_p(P1)),
 %   +----------------      +----------------                       +----------------
 %     0   1   2   3  x       0   1   2   3  x                        0   1   2   3  x
 
-:- true(&leftmost_p(P1),K), #count{P2 : true(&left_pp(P2,P1),K), true(point(P2),K)}!=0.
+not_left_pp(P2,P1,K) :- true(&leftmost_p(P1),K), true(point(P2),K), P1!=P2.
 
-true(&leftmost_p(P1),K) :- formula(spatial, &leftmost_p(P1)),
-                        #count{P2 : true(&left_pp(P2,P1),K), true(point(P2),K)}=0, 
-                        time(K).
+&sus{x(P1,K)} <= x(P2,K) :- not_left_pp(P2,P1,K).
 
-formula(spatial, &left_pp(P2,P1)) :- formula(spatial, &leftmost_p(P1)), true(point(P2),K), time(K). 
+not_left_pp(P2,P1,K) :- formula(spatial, &leftmost_p(P1)), true(point(P2),K), P1!=P2,
+                       &sus{x(P1,K)} <= x(P2,K), time(K).
 
+true(&leftmost_p(P1),K) :- formula(spatial, &leftmost_p(P1)), time(K),
+                          not_left_pp(P2,P1,K) : true(point(P2),K), P1!=P2.
 
 invalid_relation_arg(&leftmost_p(P1)) :- formula(spatial, &leftmost_p(P1)),
                                          #count {valid_arg_1 : true(point(P1),K)} != 1,

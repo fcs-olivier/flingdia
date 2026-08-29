@@ -3,24 +3,31 @@
 
 
 %%%%%%%%%%%%%%% leftmost_r  %%%%%%%%%%%%%
-:- true(&leftmost_r(R1),T), #count{R2 : true(&left_rr(R2,R1),T), true(rect(R2),T)}!=0.
+not_left_rr(R2,R1,T) :- true(&leftmost_r(R1),T), true(rect(R2),T), R1!=R2.
 
-true(&leftmost_r(R1),T) :- formula(spatial, &leftmost_r(R1)),
-                        #count{R2 : true(&left_rr(R2,R1),T), true(rect(R2),T)}=0, time(T).
+&sus{left_side(R1,T)} <= left_side(R2,T) :- not_left_rr(R2,R1,T).
 
+not_left_rr(R2,R1,T) :- formula(spatial, &leftmost_r(R1)), true(rect(R2),T), R1!=R2,
+                       &sus{left_side(R1,T)} <= left_side(R2,T), time(T).
+
+true(&leftmost_r(R1),T) :- formula(spatial, &leftmost_r(R1)), time(T),
+                          not_left_rr(R2,R1,T) : true(rect(R2),T), R1!=R2.
 
 invalid_relation_arg(&leftmost_r(R1)) :- formula(spatial, &leftmost_r(R1)),
                                          #count {valid_arg_1 : true(rect(R1),T)} != 1,
                                          time(T).
 
 
-
 %%%%%%% rightmost_r  %%%%%%%%%%%%%
-:- true(&rightmost_r(R1),T), #count{R2 : true(&right_rr(R2,R1),T), true(rect(R2),T)}!=0.
+not_right_rr(R2,R1,T) :- true(&rightmost_r(R1),T), true(rect(R2),T), R1!=R2.
 
-true(&rightmost_r(R1),T) :- formula(spatial, &rightmost_r(R1)),
-                        #count{R2 : true(&right_rr(R2,R1),T), true(rect(R2),T)}=0, time(T).
+&sus{right_side(R1,T)} >= right_side(R2,T) :- not_right_rr(R2,R1,T).
 
+not_right_rr(R2,R1,T) :- formula(spatial, &rightmost_r(R1)), true(rect(R2),T), R1!=R2,
+                        &sus{right_side(R1,T)} >= right_side(R2,T), time(T).
+
+true(&rightmost_r(R1),T) :- formula(spatial, &rightmost_r(R1)), time(T),
+                           not_right_rr(R2,R1,T) : true(rect(R2),T), R1!=R2.
 
 invalid_relation_arg(&rightmost_r(R1)) :- formula(spatial, &rightmost_r(R1)),
                                          #count {valid_arg_1 : true(rect(R1),T)} != 1,
