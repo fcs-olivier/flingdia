@@ -14,7 +14,9 @@
 %     0   1   2   3  x       0   1   2   3  x                        0   1   2   3  x
 &sus{x(P1,K)} < x(P2,K) :- true(&left_pp(P1,P2),K).
                  
-true(&left_pp(P1,P2),K) :- formula(spatial, &left_pp(P1,P2)), P1!=P2, &sus{x(P1,K)} < x(P2,K), time(K).
+true(&left_pp(P1,P2),K) :- formula(spatial, &left_pp(P1,P2)), 
+                           P1!=P2, &sus{x(P1,K)} < x(P2,K), 
+                           time(K).
                          
                          
 invalid_relation_arg(&left_pp(P1,P2)) :- formula(spatial, &left_pp(P1,P2)),
@@ -36,7 +38,9 @@ invalid_relation_arg(&left_pp(P1,P2)) :- formula(spatial, &left_pp(P1,P2)),
 %     0   1   2   3  x       0   1   2   3  x                        0   1   2   3  x
 &sus{x(P1,K)} > x(P2,K) :- true(&right_pp(P1,P2),K).
 
-true(&right_pp(P1,P2),K) :- formula(spatial, &right_pp(P1,P2)), P1!=P2, &sus{x(P1,K)} > x(P2,K), time(K).
+true(&right_pp(P1,P2),K) :- formula(spatial, &right_pp(P1,P2)), 
+                            P1!=P2, &sus{x(P1,K)} > x(P2,K), 
+                            time(K).
 
 invalid_relation_arg(&right_pp(P1,P2)) :- formula(spatial, &right_pp(P1,P2)),
                                          #count {valid_arg_1 : true(point(P1),K);

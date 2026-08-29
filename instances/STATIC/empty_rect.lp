@@ -15,7 +15,8 @@ rect(c;d).
 &disconnected_rr(c,d) :- &initial.
 
 &in_pr(a,c) :- &initial.
-
+ok :- &empty_r(d).
+hello.
 
 {&move(a)}.
 

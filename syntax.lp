@@ -64,6 +64,7 @@
     &alignedY_pr/2:  {type: atom, safety: safe; type: atom, safety: safe;};
     &in_pr/2:        {type: atom, safety: safe; type: atom, safety: safe;};
     &inEq_pr/2:      {type: atom, safety: safe; type: atom, safety: safe;};
+    &out_pr/2:       {type: atom, safety: safe; type: atom, safety: safe;};
 
     % % rect_point
     &touches_rp/2:   {type: atom, safety: safe; type: atom, safety: safe;};

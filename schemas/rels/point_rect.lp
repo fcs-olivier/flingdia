@@ -66,6 +66,39 @@ invalid_relation_arg(&inEq_pr(P1,R2)) :- formula(spatial, &inEq_pr(P1,R2)),
                                                  valid_arg_2 : true(rect(R2),K)} != 2,
                                                  time(K).
 
+%%%%%%%%%%%% out_pr  %%%%%%%%%%%%%
+% TRUE: point strictly outside the rectangle (not on its boundary).
+
+c1_out_pr(P1,R2,K)|
+    c2_out_pr(P1,R2,K)|
+    c3_out_pr(P1,R2,K)|
+    c4_out_pr(P1,R2,K) :- true(&out_pr(P1,R2),K).
+
+&sus{x(P1,K)}<left_side(R2,K)  :- c1_out_pr(P1,R2,K).
+&sus{y(P1,K)}<bottom(R2,K)     :- c2_out_pr(P1,R2,K).
+&sus{x(P1,K)}>right_side(R2,K) :- c3_out_pr(P1,R2,K).
+&sus{y(P1,K)}>top(R2,K)        :- c4_out_pr(P1,R2,K).
+
+% Tie each disjunctive case to its geometric witness.
+c1_out_pr(P1,R2,K) :- formula(spatial, &out_pr(P1,R2)),
+                      &sus{x(P1,K)}<left_side(R2,K), time(K).
+c2_out_pr(P1,R2,K) :- formula(spatial, &out_pr(P1,R2)),
+                      &sus{y(P1,K)}<bottom(R2,K), time(K).
+c3_out_pr(P1,R2,K) :- formula(spatial, &out_pr(P1,R2)),
+                      &sus{x(P1,K)}>right_side(R2,K), time(K).
+c4_out_pr(P1,R2,K) :- formula(spatial, &out_pr(P1,R2)),
+                      &sus{y(P1,K)}>top(R2,K), time(K).
+
+true(&out_pr(P1,R2),K) :- c1_out_pr(P1,R2,K).
+true(&out_pr(P1,R2),K) :- c2_out_pr(P1,R2,K).
+true(&out_pr(P1,R2),K) :- c3_out_pr(P1,R2,K).
+true(&out_pr(P1,R2),K) :- c4_out_pr(P1,R2,K).
+
+invalid_relation_arg(&out_pr(P1,R2)) :- formula(spatial, &out_pr(P1,R2)),
+                                        #count {valid_arg_1 : true(point(P1),K);
+                                                valid_arg_2 : true(rect(R2),K)} != 2,
+                                                time(K).
+
 %%%%%%%%%%%% left_pr  %%%%%%%%%%%%%
 
 &sus{x(P1,K)}<left_side(R2,K) :- true(&left_pr(P1,R2),K). 

@@ -14,6 +14,9 @@ metasp solve flingo --meta-config config.yaml \
                     -c ymax=10 
 *%
 
-point(a;b).
-&left_pp(a,b).
+point(a;b;c).
+% &left_pp(a,b).
+% &left_pp(a,c).
+%:- &samePlace_pp(b,c).
+&rightmost_p(b).
 
