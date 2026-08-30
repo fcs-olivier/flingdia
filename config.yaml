@@ -19,6 +19,7 @@ semantics-encoding:
   - "schemas/rels/rect_line.lp"
   - "schemas/rels/rect_rect_POS.lp"
   - "schemas/rels/rect_rect_TOPO.lp"
+  - "schemas/actions/action_signatures.lp" # Generic action signatures
   - "schemas/actions/move.lp"     # For actions
   - "schemas/actions/grows.lp" 
   # All the modules are in the modules folder below.

@@ -633,8 +633,9 @@ class PrinterManager:
         has_temporal_atoms = False
         for sym in model.symbols(shown=True):  # NOTE you need to include them in the #show then
             #print("sym: ", sym)  # examples: true(point(a)), true(__left(a,b)), true(p), ... everything that starts with 'true'
-            if sym.name == "invalid_relation_arg":   # not placed inside the "true" predicate, so directly sym.name
-                print(RED + "ERROR: Invalid relation >> " + str(sym.arguments[0])[2:] + " <<. Arguments have wrong sorts or use undeclared objects. Solving stopped." + RESET)
+            if sym.name in {"invalid_relation_arg", "invalid_action_arg"}:
+                kind = "relation" if sym.name == "invalid_relation_arg" else "action"
+                print(RED + "ERROR: Invalid " + kind + " >> " + str(sym.arguments[0])[2:] + " <<. Arguments have wrong sorts or use undeclared objects. Solving stopped." + RESET)
                 return
 
         # shown=True is not always enough for derived spatial atoms after the

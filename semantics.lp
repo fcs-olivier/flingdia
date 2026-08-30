@@ -13,6 +13,7 @@
 #show true(S,T) : true(S,T), formula(spatial,S).
 #show true(S,T) : true(S,T), formula(atom,S).
 #show invalid_relation_arg/1.
+#show invalid_action_arg/1.
 %&show{}.
 
 

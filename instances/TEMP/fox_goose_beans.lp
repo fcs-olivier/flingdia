@@ -1,7 +1,7 @@
 %*
 metasp solve flingo --meta-config config.yaml \
                     --warn=no-atom-undefined \
-                    instances/ST/fox_goose_beans.lp  1 \
+                    instances/TEMP/fox_goose_beans.lp  1 \
                     -c display_time=7  \
                     --project=show \
                     -c n=12 \
