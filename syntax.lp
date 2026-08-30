@@ -50,6 +50,8 @@
     &endsAt_lp/2:    {type: atom, safety: safe; type: atom, safety: safe;};
     &fromTo_lpp/3:   {type: atom, safety: safe; type: atom, safety: safe; type: atom, safety: safe;};
 
+    % point_line
+    &on_pl/2:        {type: atom, safety: safe; type: atom, safety: safe;};
 
     % point_
     &rightmost_p/1:  {type: atom, safety: safe;};

@@ -9,6 +9,7 @@ semantics-encoding:
   - "schemas/geo_sorts.lp"     # For geo sorts
   - "schemas/rels/line_.lp"     # For relations starting here
   - "schemas/rels/line_point.lp"
+  - "schemas/rels/point_line.lp"
   - "schemas/rels/point_.lp"
   - "schemas/rels/point_point.lp"
   - "schemas/rels/point_rect.lp"
