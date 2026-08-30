@@ -273,9 +273,10 @@ class GeometricDisplayer:
                                linewidth=0.5)  # Thin black border
             ax.add_patch(rect)
             
-            # Add label without background box
-            ax.annotate(name, (x, y), 
-                       xytext=(x + 0.1, y + 0.2),
+            # Label slightly above the top side, centered
+            ax.annotate(name, (x + w / 2, y + h),
+                       xytext=(x + w / 2, y + h + 0.10),
+                       ha='center', va='bottom',
                        annotation_clip=False)
 
     def _draw_rects_3d(self, ax, rects_data):

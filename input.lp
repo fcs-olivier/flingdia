@@ -14,12 +14,11 @@ metasp solve flingo --meta-config config.yaml \
                     -c ymax=10 
 *%
 
-point(a).
-point(b).
+point(a;b).
+rect(c).
+&out(a,c):- &initial.
+:- &final, not &in(a,c).
 
-&left(a,b).
-&alignedY(a,b).
-
-derived_right :- &right(b,a).
+{&move(a)}.
 
 
