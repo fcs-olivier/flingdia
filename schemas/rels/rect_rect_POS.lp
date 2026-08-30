@@ -5,7 +5,7 @@
 
 %%%%%%%%%%%%%%% POSITION %%%%%%%%%%%%%
 
-%%%%%%%%%%%%%% right_rr  %%%%%%%%%%%%%
+%%%%%%%%%%%%%% right  %%%%%%%%%%%%%
 % TRUE: separated                    TRUE: touches                      TRUE: not vertically aligned
 % 4 | .   .   +---+                  4 | .   .   .   .                  4 | +---+   .   .
 % 3 | .   .   |R1 |                  3 | .   .   .   .                  3 | |R2 |   .   .
@@ -23,17 +23,13 @@
 %   +----------------
 %     0   1   2   3  x
 
-&sus{left_side(R1,K)}>=right_side(R2,K) :- true(&right_rr(R1,R2),K).
+&sus{left_side(R1,K)}>=right_side(R2,K) :- true(&right(R1,R2),K), rel_right_rr(R1,R2,K).
 
-true(&right_rr(R1,R2),K) :- formula(spatial, &right_rr(R1,R2)),
-                          &sus{left_side(R1,K)}>=right_side(R2,K), time(K).
+true(&right(R1,R2),K) :- formula(spatial, &right(R1,R2)),
+                          &sus{left_side(R1,K)}>=right_side(R2,K), time(K), rel_right_rr(R1,R2,K).
 
-invalid_relation_arg(&right_rr(R1,R2)) :- formula(spatial, &right_rr(R1,R2)), R1!=R2,
-                                         #count {valid_arg_1 : true(rect(R1),K);
-                                                 valid_arg_2 : true(rect(R2),K)} != 2,
-                                                 time(K).
 
-%%%%%%%%%%%%%%% left_rr  %%%%%%%%%%%%%
+%%%%%%%%%%%%%%% left  %%%%%%%%%%%%%
 
 % TRUE: separated                    TRUE: touches                      TRUE: not vertically aligned
 % 4 | +---+   .   .                  4 | .   .   .   .                  4 | .   .   +---+
@@ -52,18 +48,14 @@ invalid_relation_arg(&right_rr(R1,R2)) :- formula(spatial, &right_rr(R1,R2)), R1
 %   | +---+
 %   +----------------
 %     0   1   2   3  x
-&sus{right_side(R1,K)}<=left_side(R2,K) :- true(&left_rr(R1,R2),K).
+&sus{right_side(R1,K)}<=left_side(R2,K) :- true(&left(R1,R2),K), rel_left_rr(R1,R2,K).
 
-true(&left_rr(R1,R2),K) :- formula(spatial, &left_rr(R1,R2)),
-                         &sus{right_side(R1,K)}<=left_side(R2,K), time(K).
-
-invalid_relation_arg(&left_rr(R1,R2)) :- formula(spatial, &left_rr(R1,R2)), R1!=R2,
-                                         #count {valid_arg_1 : true(rect(R1),K);
-                                                 valid_arg_2 : true(rect(R2),K)} != 2,
-                                                 time(K).
+true(&left(R1,R2),K) :- formula(spatial, &left(R1,R2)),
+                         &sus{right_side(R1,K)}<=left_side(R2,K), time(K), rel_left_rr(R1,R2,K).
 
 
-%%%%%%%%%%%%%%% below_rr  %%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% below  %%%%%%%%%%%%%
 
 % TRUE: directly below               TRUE: touches, horizontally shifted TRUE: below, not horizontally aligned
 % 4 | .   +---+   .                  4 | .   .   .   .                  4 | .   .   +---+
@@ -83,18 +75,14 @@ invalid_relation_arg(&left_rr(R1,R2)) :- formula(spatial, &left_rr(R1,R2)), R1!=
 %   +----------------
 %     0   1   2   3  x
 
-&sus{top(R1,K)}<=bottom(R2,K) :- true(&below_rr(R1,R2),K).
+&sus{top(R1,K)}<=bottom(R2,K) :- true(&below(R1,R2),K), rel_below_rr(R1,R2,K).
 
-true(&below_rr(R1,R2),K) :- formula(spatial, &below_rr(R1,R2)),
-                          &sus{top(R1,K)}<=bottom(R2,K), time(K).
-
-invalid_relation_arg(&below_rr(R1,R2)) :- formula(spatial, &below_rr(R1,R2)), R1!=R2,
-                                          #count {valid_arg_1 : true(rect(R1),K);
-                                                  valid_arg_2 : true(rect(R2),K)} != 2,
-                                                  time(K).
+true(&below(R1,R2),K) :- formula(spatial, &below(R1,R2)),
+                          &sus{top(R1,K)}<=bottom(R2,K), time(K), rel_below_rr(R1,R2,K).
 
 
-%%%%%%%%%%%%%%% above_rr  %%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% above  %%%%%%%%%%%%%
 
 % TRUE: directly above               TRUE: touches, horizontally shifted TRUE: above, not horizontally aligned
 % 4 | .   +---+   .                  4 | .   +---+   .                  4 | +---+   .   .
@@ -112,19 +100,15 @@ invalid_relation_arg(&below_rr(R1,R2)) :- formula(spatial, &below_rr(R1,R2)), R1
 %   +----------------
 %     0   1   2   3  x
 
-&sus{bottom(R1,K)}>=top(R2,K) :- true(&above_rr(R1,R2),K).
+&sus{bottom(R1,K)}>=top(R2,K) :- true(&above(R1,R2),K), rel_above_rr(R1,R2,K).
 
-true(&above_rr(R1,R2),K) :- formula(spatial, &above_rr(R1,R2)),
-                          &sus{bottom(R1,K)}>=top(R2,K), time(K).
-
-invalid_relation_arg(&above_rr(R1,R2)) :- formula(spatial, &above_rr(R1,R2)), R1!=R2,
-                                          #count {valid_arg_1 : true(rect(R1),K);
-                                                  valid_arg_2 : true(rect(R2),K)} != 2,
-                                                  time(K).
+true(&above(R1,R2),K) :- formula(spatial, &above(R1,R2)),
+                          &sus{bottom(R1,K)}>=top(R2,K), time(K), rel_above_rr(R1,R2,K).
 
 
 
-%%%%%%%%%%%%%%% on_rr  %%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% on  %%%%%%%%%%%%%
 
 % TRUE: directly on                  TRUE: on, shifted with one unit common
 % 4 | .   +---+   .                  4 | .   +-----+ .
@@ -144,18 +128,14 @@ invalid_relation_arg(&above_rr(R1,R2)) :- formula(spatial, &above_rr(R1,R2)), R1
 %   +------------- 
 %     0   1   2   3  x                 
 
-&sus{bottom(R1,K)} = top(R2,K)           :- true(&on_rr(R1,R2),K), R1 != R2.
-&sus{right_side(R1,K)} > left_side(R2,K) :- true(&on_rr(R1,R2),K), R1 != R2.
-&sus{left_side(R1,K)} < right_side(R2,K) :- true(&on_rr(R1,R2),K), R1 != R2.
+&sus{bottom(R1,K)} = top(R2,K)           :- true(&on(R1,R2),K), R1 != R2, rel_on_rr(R1,R2,K).
+&sus{right_side(R1,K)} > left_side(R2,K) :- true(&on(R1,R2),K), R1 != R2, rel_on_rr(R1,R2,K).
+&sus{left_side(R1,K)} < right_side(R2,K) :- true(&on(R1,R2),K), R1 != R2, rel_on_rr(R1,R2,K).
 
-true(&on_rr(R1,R2),K) :- formula(spatial, &on_rr(R1,R2)), R1 != R2,
+true(&on(R1,R2),K) :- formula(spatial, &on(R1,R2)), R1 != R2,
                        &sus{bottom(R1,K)} = top(R2,K),
                        &sus{right_side(R1,K)} > left_side(R2,K),
-                       &sus{left_side(R1,K)} < right_side(R2,K), time(K).
+                       &sus{left_side(R1,K)} < right_side(R2,K), time(K), rel_on_rr(R1,R2,K).
 
-invalid_relation_arg(&on_rr(R1,R2)) :- formula(spatial, &on_rr(R1,R2)), R1!=R2,
-                                       #count { valid_arg_1 : true(rect(R1),K);
-                                                valid_arg_2 : true(rect(R2),K) } != 2,
-                                                time(K).
 
 

@@ -21,20 +21,20 @@ rect(c;d).
 %%%%%%% 2) Initially, point 'a' lies to the right of rectangle 'c' 
 %                     point 'a' lies to the left of rectangle 'd', 
 %                     point 'a' is horizontally aligned with rectangle 'c'.
-&right_pr(a,c) :- &initial.
-&left_pr(a,d) :- &initial.
-&alignedY_pr(a,c) :- &initial.
+&right(a,c) :- &initial.
+&left(a,d) :- &initial.
+&alignedY(a,c) :- &initial.
 
 %%%%%%% 3) Point 'b' is initially horizontally aligned with point 'a'. 
 %          At the next step, the future position of point 'b' lies to the left of the initial position of point 'a'.
-&alignedY_pp(b,a) :- &initial.
-&next(&left_pp(b,a)) :- &initial.
+&alignedY(b,a) :- &initial.
+&next(&left(b,a)) :- &initial.
 
 
 %%%%%%% 4) At any time, a propositional condition 'p' may become true, triggering an increase in the size of
 %                       rectangle 'c' until external connection with rectangle 'd' is reached.
 
-&until(&grows(c),&not(&not(&extConnected_rr(c,d)))) :- p.
+&until(&grows(c),&not(&not(&extConnected(c,d)))) :- p.
 
 
 % Declare the propositional condition 'p' to start the growing process.

@@ -1,6 +1,3 @@
-
-
-
 #type st {
   expressions: {
     &true/0;
@@ -16,7 +13,6 @@
   macros:   { &final: &not(&next(&true)); };
   occurrence: any;
 }.
-
 
 #type spatial {
   expressions: {
@@ -39,72 +35,39 @@
     &move_down_left/1: {type: atom, safety: safe;};
     &grows/1: {type: atom, safety: safe;};
 
-    % Relations
-    % line_
-    &horizontal_l/1: {type: atom, safety: safe;};
-    &vertical_l/1:   {type: atom, safety: safe;};
-    &diagonal_l/1:   {type: atom, safety: safe;};
+    % Spatial relations (sort-overloaded; signatures are checked internally)
+    &horizontal/1: {type: atom, safety: safe;};
+    &vertical/1:   {type: atom, safety: safe;};
+    &diagonal/1:   {type: atom, safety: safe;};
+    &rightmost/1:  {type: atom, safety: safe;};
+    &leftmost/1:   {type: atom, safety: safe;};
+    &empty/1:      {type: atom, safety: safe;};
 
-    % line_point
-    &startsAt_lp/2:  {type: atom, safety: safe; type: atom, safety: safe;};
-    &endsAt_lp/2:    {type: atom, safety: safe; type: atom, safety: safe;};
-    &fromTo_lpp/3:   {type: atom, safety: safe; type: atom, safety: safe; type: atom, safety: safe;};
+    &startsAt/2:       {type: atom, safety: safe; type: atom, safety: safe;};
+    &endsAt/2:         {type: atom, safety: safe; type: atom, safety: safe;};
+    &on/2:             {type: atom, safety: safe; type: atom, safety: safe;};
+    &left/2:           {type: atom, safety: safe; type: atom, safety: safe;};
+    &right/2:          {type: atom, safety: safe; type: atom, safety: safe;};
+    &alignedY/2:       {type: atom, safety: safe; type: atom, safety: safe;};
+    &alignedYEq/2:     {type: atom, safety: safe; type: atom, safety: safe;};
+    &samePlace/2:      {type: atom, safety: safe; type: atom, safety: safe;};
+    &far/2:            {type: atom, safety: safe; type: atom, safety: safe;};
+    &in/2:             {type: atom, safety: safe; type: atom, safety: safe;};
+    &inEq/2:           {type: atom, safety: safe; type: atom, safety: safe;};
+    &out/2:            {type: atom, safety: safe; type: atom, safety: safe;};
+    &touches/2:        {type: atom, safety: safe; type: atom, safety: safe;};
+    &above/2:          {type: atom, safety: safe; type: atom, safety: safe;};
+    &below/2:          {type: atom, safety: safe; type: atom, safety: safe;};
+    &overlap/2:        {type: atom, safety: safe; type: atom, safety: safe;};
+    &ntpp/2:           {type: atom, safety: safe; type: atom, safety: safe;};
+    &disconnected/2:   {type: atom, safety: safe; type: atom, safety: safe;};
+    &discrete/2:       {type: atom, safety: safe; type: atom, safety: safe;};
+    &equal/2:          {type: atom, safety: safe; type: atom, safety: safe;};
+    &partialOverlap/2: {type: atom, safety: safe; type: atom, safety: safe;};
+    &properPart/2:     {type: atom, safety: safe; type: atom, safety: safe;};
+    &extConnected/2:   {type: atom, safety: safe; type: atom, safety: safe;};
 
-    % point_line
-    &on_pl/2:        {type: atom, safety: safe; type: atom, safety: safe;};
-
-    % point_
-    &rightmost_p/1:  {type: atom, safety: safe;};
-    &leftmost_p/1:   {type: atom, safety: safe;};
-
-    % point_point
-    &left_pp/2:      {type: atom, safety: safe; type: atom, safety: safe;};
-    &right_pp/2:     {type: atom, safety: safe; type: atom, safety: safe;}; 
-    &alignedY_pp/2:  {type: atom, safety: safe; type: atom, safety: safe;};
-    &samePlace_pp/2: {type: atom, safety: safe; type: atom, safety: safe;};
-
-    &far_pp/2:      {type: atom, safety: safe; type: atom, safety: safe;};
-
-    % % point_rect
-    &left_pr/2:      {type: atom, safety: safe; type: atom, safety: safe;};
-    &right_pr/2:     {type: atom, safety: safe; type: atom, safety: safe;};
-    &alignedY_pr/2:  {type: atom, safety: safe; type: atom, safety: safe;};
-    &in_pr/2:        {type: atom, safety: safe; type: atom, safety: safe;};
-    &inEq_pr/2:      {type: atom, safety: safe; type: atom, safety: safe;};
-    &out_pr/2:       {type: atom, safety: safe; type: atom, safety: safe;};
-
-    % % rect_point
-    &touches_rp/2:   {type: atom, safety: safe; type: atom, safety: safe;};
-
-    % % rect_
-    &rightmost_r/1:  {type: atom, safety: safe;};
-    &leftmost_r/1:   {type: atom, safety: safe;};
-    &horizontal_r/1: {type: atom, safety: safe;};
-    &vertical_r/1:   {type: atom, safety: safe;};
-    &empty_r/1:      {type: atom, safety: safe;};
-    
-    % % rect_line
-    &on_rl/2:        {type: atom, safety: safe; type: atom, safety: safe;};
-
-    % % rect_rect POS
-    &left_rr/2:           {type: atom, safety: safe; type: atom, safety: safe;};
-    &right_rr/2:          {type: atom, safety: safe; type: atom, safety: safe;};
-    &above_rr/2:          {type: atom, safety: safe; type: atom, safety: safe;};
-    &below_rr/2:          {type: atom, safety: safe; type: atom, safety: safe;};
-    &on_rr/2:             {type: atom, safety: safe; type: atom, safety: safe;};
-
-    % % rect_rect TOPO
-    &overlap_rr/2:        {type: atom, safety: safe; type: atom, safety: safe;};
-    &ntpp_rr/2:           {type: atom, safety: safe; type: atom, safety: safe;};
-    &disconnected_rr/2:   {type: atom, safety: safe; type: atom, safety: safe;};
-    &discrete_rr/2:       {type: atom, safety: safe; type: atom, safety: safe;};
-    &equal_rr/2:          {type: atom, safety: safe; type: atom, safety: safe;};
-    &partialOverlap_rr/2: {type: atom, safety: safe; type: atom, safety: safe;};
-    &properPart_rr/2:     {type: atom, safety: safe; type: atom, safety: safe;};
-    &extConnected_rr/2:   {type: atom, safety: safe; type: atom, safety: safe;};
-
-    %&far_rr/2:           {type: atom, safety: safe; type: atom, safety: safe;};
-
+    &fromTo/3: {type: atom, safety: safe; type: atom, safety: safe; type: atom, safety: safe;};
   };
   subtypes: { };
   macros:   { };

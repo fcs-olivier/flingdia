@@ -15,21 +15,21 @@ line(mountain).
 &eq(x(bottom),1). &eq(y(bottom),1).
 &eq(x(monastary),9). &eq(y(monastary),9).
 
-&fromTo_lpp(mountain, bottom, monastary) :- &initial.
+&fromTo(mountain, bottom, monastary) :- &initial.
 
 {&move(monk1); &move(monk2)}.
 
-&samePlace_pp(monk1, bottom) :- &initial.
-&samePlace_pp(monk2, monastary) :- &initial.
+&samePlace(monk1, bottom) :- &initial.
+&samePlace(monk2, monastary) :- &initial.
 
-:- &final, not &samePlace_pp(monk1, monastary).
-:- &final, not &samePlace_pp(monk2, bottom).
+:- &final, not &samePlace(monk1, monastary).
+:- &final, not &samePlace(monk2, bottom).
 
-:- not &on_pl(monk1, mountain).
-:- not &on_pl(monk2, mountain).
+:- not &on(monk1, mountain).
+:- not &on(monk2, mountain).
 
 
-yes :- &samePlace_pp(monk1, monk2).
-yes :- &samePlace_pp(monk1, monk2).
+yes :- &samePlace(monk1, monk2).
+yes :- &samePlace(monk1, monk2).
 
 

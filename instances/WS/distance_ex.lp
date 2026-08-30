@@ -9,7 +9,7 @@ metasp solve flingo --meta-config config.yaml \
 
 
 %point(a;b).
-%&far_pp(a,b).
+%&far(a,b).
 rect(a;b).
-&far_rr(a,b).
+&far(a,b).
 

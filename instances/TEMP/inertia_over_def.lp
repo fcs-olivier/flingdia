@@ -18,15 +18,15 @@ rect(a;b).
 &eq(height(R),1) :- rect(R).
 
 % 3) We declare an initial situation
-&left_rr(a,b) :- &initial.
+&left(a,b) :- &initial.
 
 % 4) If we declare relations positively, they overwrite inertia
-%&next(&on_rr(a,b)) :- &initial.
-%&right_rr(a,b) :- &final.
+%&next(&on(a,b)) :- &initial.
+%&right(a,b) :- &final.
 
 % 4') Correct declaration
-:- not &next(&on_rr(a,b)), &initial.
-:- not &right_rr(a,b), &final.
+:- not &next(&on(a,b)), &initial.
+:- not &right(a,b), &final.
 
 % 5) We have to enable rects to 'move' if the rels in 4' must be constructively satisfied. 
 {&move(R): rect(R)}1.

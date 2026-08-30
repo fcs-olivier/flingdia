@@ -15,22 +15,22 @@ rect(table;B):- block(B).
 &eq(width(B),1) :- block(B).
 predefined(table).
 
-&on_rr(a,table):- &initial.
-&on_rr(b,a):- &initial.
-&on_rr(c,b):- &initial.
+&on(a,table):- &initial.
+&on(b,a):- &initial.
+&on(c,b):- &initial.
 
-:- &final, not &on_rr(a,b).
-:- &final, not &on_rr(b,c).
-:- &final, not &on_rr(c,table).
+:- &final, not &on(a,b).
+:- &final, not &on(b,c).
+:- &final, not &on(c,table).
 
 % no two rectangles can overlap
-:- &overlap_rr(R1,R2), rect(R1), rect(R2).
+:- &overlap(R1,R2), rect(R1), rect(R2).
 
 % blocks cannot levitate if they are not in motion or on a rectangle (block or table)
-:- block(B), not &move(B), not &on_rr(B,R): rect(R).
+:- block(B), not &move(B), not &on(B,R): rect(R).
 
 % a block cannot move if it is under another block
-cannot_move(B1) :- block(B1), block(B2), &on_rr(B2,B1).
+cannot_move(B1) :- block(B1), block(B2), &on(B2,B1).
 
 % among all blocks that can move, we enable one of them to do so
 0{&move(B):block(B), not cannot_move(B)}1.

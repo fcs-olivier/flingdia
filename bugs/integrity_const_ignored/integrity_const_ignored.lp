@@ -23,21 +23,21 @@ point(a;b).
 &eq(x(b),1). &eq(y(b),0).
 
 % should fire — silently dropped (see README)
-:- &left_pp(a,b).
+:- &left(a,b).
 
 
 
 %%%%%% OTHER EXAMPLE BUT THE PROBLEM DOES NOT OCCUR HERE
-% &left_pp(a,b). / &left_pp(b,c). are heads: that path emits unguarded #external a. / b. / c..
+% &left(a,b). / &left(b,c). are heads: that path emits unguarded #external a. / b. / c..
 
-% The constraint still becomes #external &right_pp(c,a): c, a. — but those 
+% The constraint still becomes #external &right(c,a): c, a. — but those 
 % guards now succeed, so the formula is registered and the constraint fires. 
 % The bug only bites when the body atom's arguments are never made head-true.
 % point(a;b;c).
 
-% &left_pp(a,b).
-% &left_pp(b,c).
-% :- &right_pp(c,a).
+% &left(a,b).
+% &left(b,c).
+% :- &right(c,a).
 
 % Workaround (uncomment to recover UNSAT):
-% :- not &not(&left_pp(a,b)).
+% :- not &not(&left(a,b)).

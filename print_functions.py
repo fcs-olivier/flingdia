@@ -575,7 +575,7 @@ class PrinterManager:
     def format_shown_formula(self, formula):
         """Format a formula shown through true/1 or true/2 for console output."""
         # The state header should show user-relevant atoms: spatial relations
-        # like left_pp/on_rr and ordinary ASP atoms. It should not repeat sort
+        # like left/on and ordinary ASP atoms. It should not repeat sort
         # declarations, df/eq bookkeeping, or temporal operators.
         if (
             formula.name in ["__df", "__eq"]
@@ -632,14 +632,14 @@ class PrinterManager:
         shown_by_state = defaultdict(set)
         has_temporal_atoms = False
         for sym in model.symbols(shown=True):  # NOTE you need to include them in the #show then
-            #print("sym: ", sym)  # examples: true(point(a)), true(__left_pp(a,b)), true(p), ... everything that starts with 'true'
+            #print("sym: ", sym)  # examples: true(point(a)), true(__left(a,b)), true(p), ... everything that starts with 'true'
             if sym.name == "invalid_relation_arg":   # not placed inside the "true" predicate, so directly sym.name
                 print(RED + "ERROR: Invalid relation >> " + str(sym.arguments[0])[2:] + " <<. Arguments have wrong sorts or use undeclared objects. Solving stopped." + RESET)
                 return
 
         # shown=True is not always enough for derived spatial atoms after the
         # meta-time transformation. Looking at true atoms as well lets the table
-        # header include relations such as on_rr(a,b) at each state.
+        # header include relations such as on(a,b) at each state.
         for sym in list(model.symbols(shown=True)) + list(model.symbols(atoms=True)):
             if sym.name == "true" and sym.arguments:  # = something inside the "true" predicate
                 formula = sym.arguments[0]
@@ -649,7 +649,7 @@ class PrinterManager:
                     has_temporal_atoms = True
 
                 pred_name = formula.name
-                #print("pred_name: ", pred_name) # out: point, point, __left_pp, __df, ...
+                #print("pred_name: ", pred_name) # out: point, point, __left, __df, ...
                 if pred_name in GEOMETRIC_SORT_PREDICATES: # geometric sort declaration case (e.g. point(a))
                     if len(formula.arguments) > 1:
                         print(RED + "ERROR: Invalid declaration >> " + str(formula) + " <<. You probably used , instead of ; for declaring multiple objects. Solving stopped." + RESET)

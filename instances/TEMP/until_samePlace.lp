@@ -15,8 +15,8 @@ point(a;b).
 &eq(x(b),6) :- &initial.
 &eq(y(b),6) :- &initial.
 
-%&until(&move(a), &samePlace_pp(a,b)) :- go.  % without not not, the rel's support allows points to jump to a same place. 
-&until(&move(a), &not(&not(&samePlace_pp(a,b)))) :- go.
+%&until(&move(a), &samePlace(a,b)) :- go.  % without not not, the rel's support allows points to jump to a same place. 
+&until(&move(a), &not(&not(&samePlace(a,b)))) :- go.
 
 
 &next(&next(go)) :- &initial.

@@ -7,6 +7,7 @@ semantics-encoding:
   - "numerical_atoms.lp"
   # All the schemas are in the geo_schema folders below.
   - "schemas/geo_sorts.lp"     # For geo sorts
+  - "schemas/rels/relation_signatures.lp" # Generic relation signatures
   - "schemas/rels/line_.lp"     # For relations starting here
   - "schemas/rels/line_point.lp"
   - "schemas/rels/point_line.lp"

@@ -15,6 +15,11 @@ metasp solve flingo --meta-config config.yaml \
 *%
 
 point(a).
+point(b).
 
-&next(point(b)) :- &initial.
+&left(a,b).
+&alignedY(a,b).
+
+derived_right :- &right(b,a).
+
 

@@ -26,8 +26,8 @@ rect(universe).
 &eq(left_side(universe),0).
 &eq(right_side(universe),9).
 
-{&discrete_rr(R1,R2): rect(R1), rect(R2), R1!=R2, R1!=universe, R2!=universe}.
-{&partialOverlap_rr(R1,R2): rect(R1), rect(R2), R1!=R2, R1!=universe, R2!=universe}.
-{&equal_rr(R1,R2): rect(R1), rect(R2), R1!=R2, R1!=universe, R2!=universe}.
-{&properPart_rr(R1,R2): rect(R1), rect(R2), R1!=R2, R1!=universe, R2!=universe}.
-% I don't get why I have ERROR: Invalid relation >> properPart_rr(a,b) <<. Arguments have wrong sorts or use undeclared objects. Solving stopped.
+{&discrete(R1,R2): rect(R1), rect(R2), R1!=R2, R1!=universe, R2!=universe}.
+{&partialOverlap(R1,R2): rect(R1), rect(R2), R1!=R2, R1!=universe, R2!=universe}.
+{&equal(R1,R2): rect(R1), rect(R2), R1!=R2, R1!=universe, R2!=universe}.
+{&properPart(R1,R2): rect(R1), rect(R2), R1!=R2, R1!=universe, R2!=universe}.
+% I don't get why I have ERROR: Invalid relation >> properPart(a,b) <<. Arguments have wrong sorts or use undeclared objects. Solving stopped.

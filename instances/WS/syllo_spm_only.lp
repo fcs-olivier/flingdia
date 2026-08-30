@@ -23,15 +23,15 @@ statement(Type1, Term1, Term2) :- syll(Type1, _, Fig), fig(Fig, Term1, Term2, _,
 statement(Type2, Term1, Term2) :- syll(_, Type2, Fig), fig(Fig, _, _, Term1, Term2).
 rect(s;p;m).
 
-1{&properPart_rr(X,Y);&equal_rr(X,Y)}                                             :- statement(a, X, Y).
-&discrete_rr(X,Y)                                                                 :- statement(e, X, Y).
-1{&properPart_rr(X,Y);&equal_rr(X,Y);&partialOverlap_rr(X,Y);&properPart_rr(Y,X)} :- statement(i, X, Y).
-1{&partialOverlap_rr(X,Y);&properPart_rr(Y,X);&discrete_rr(X,Y)}                  :- statement(o, X, Y).
+1{&properPart(X,Y);&equal(X,Y)}                                             :- statement(a, X, Y).
+&discrete(X,Y)                                                                 :- statement(e, X, Y).
+1{&properPart(X,Y);&equal(X,Y);&partialOverlap(X,Y);&properPart(Y,X)} :- statement(i, X, Y).
+1{&partialOverlap(X,Y);&properPart(Y,X);&discrete(X,Y)}                  :- statement(o, X, Y).
 
-conclusion(a) :- 1{&properPart_rr(s,p) ; &equal_rr(s,p)}.
-conclusion(e) :- &discrete_rr(s,p).
-conclusion(i) :- 1{&properPart_rr(s,p); &equal_rr(s,p); &partialOverlap_rr(s,p); &properPart_rr(p,s)}.
-conclusion(o) :- 1{&partialOverlap_rr(s,p); &properPart_rr(p,s); &discrete_rr(s,p)}.
+conclusion(a) :- 1{&properPart(s,p) ; &equal(s,p)}.
+conclusion(e) :- &discrete(s,p).
+conclusion(i) :- 1{&properPart(s,p); &equal(s,p); &partialOverlap(s,p); &properPart(p,s)}.
+conclusion(o) :- 1{&partialOverlap(s,p); &properPart(p,s); &discrete(s,p)}.
 
 #show conclusion/1.
 

@@ -12,18 +12,18 @@ metasp solve flingo --meta-config config.yaml \
 point(a;b).
 rect(c;d). 
 
-&discrete_rr(c,d) :- &initial.
-&in_pr(a,c) :- &initial.
-&out_pr(b,d) :- &initial.
+&discrete(c,d) :- &initial.
+&in(a,c) :- &initial.
+&out(b,d) :- &initial.
 
 {&move(b)}.
 
-%ok :- &empty_r(R), rect(R).
+%ok :- &empty(R), rect(R).
 
 
 
-:- &final, &empty_r(R), rect(R).
+:- &final, &empty(R), rect(R).
 
-%:- &initial, &empty_r(R), rect(R), not &eventually(&in_pr(a,R)).
+%:- &initial, &empty(R), rect(R), not &eventually(&in(a,R)).
 
 

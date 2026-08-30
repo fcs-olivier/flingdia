@@ -55,13 +55,13 @@ rect(red; beige; pink; yellow; orange; plum; purple; blue).
 &eq(bottom(blue),4)    :- &initial. &eq(height(blue),1) :- &initial.
 
 %%% car displacements
-{&move_left(R);&move_right(R)}1 :- &horizontal_r(R), rect(R).
-{&move_up(R);&move_down(R)}1 :- &vertical_r(R), rect(R).
+{&move_left(R);&move_right(R)}1 :- &horizontal(R), rect(R).
+{&move_up(R);&move_down(R)}1 :- &vertical(R), rect(R).
 :- &move(R1), &move(R2), rect(R1), rect(R2), R1 != R2.
 
 % no cars can overlap
-:- &overlap_rr(R1,R2), rect(R1), rect(R2).
+:- &overlap(R1,R2), rect(R1), rect(R2).
 
 % the red car must reach the exit
-:- &final, not &touches_rp(red,exit).
+:- &final, not &touches(red,exit).
 

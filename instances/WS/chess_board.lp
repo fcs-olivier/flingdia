@@ -22,5 +22,5 @@ rect(a8;b8;c8;d8;e8;f8;g8;h8;
 &eq(width(R),1):- rect(R).
 &eq(height(R),1):- rect(R).
 
-:- rect(R1), rect(R2), &overlap_rr(R1,R2), R1!=R2.
-&left_rr(a8,b7).
+:- rect(R1), rect(R2), &overlap(R1,R2), R1!=R2.
+&left(a8,b7).

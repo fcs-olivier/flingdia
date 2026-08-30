@@ -33,15 +33,15 @@ target(mortal, man).
 rect(Term) :- statement(_, Term, _).
 rect(Term) :- statement(_, _, Term).
 
-1{&properPart_rr(X,Y);&equal_rr(X,Y)}                                             :- statement(a, X, Y).
-&discrete_rr(X,Y)                                                                 :- statement(e, X, Y).
-1{&properPart_rr(X,Y);&equal_rr(X,Y);&partialOverlap_rr(X,Y);&properPart_rr(Y,X)} :- statement(i, X, Y).
-1{&partialOverlap_rr(X,Y);&properPart_rr(Y,X);&discrete_rr(X,Y)}                  :- statement(o, X, Y).
+1{&properPart(X,Y);&equal(X,Y)}                                             :- statement(a, X, Y).
+&discrete(X,Y)                                                                 :- statement(e, X, Y).
+1{&properPart(X,Y);&equal(X,Y);&partialOverlap(X,Y);&properPart(Y,X)} :- statement(i, X, Y).
+1{&partialOverlap(X,Y);&properPart(Y,X);&discrete(X,Y)}                  :- statement(o, X, Y).
 
-conclusion(a,X,Y) :- target(X,Y), 1{&properPart_rr(X,Y); &equal_rr(X,Y)}.
-conclusion(e,X,Y) :- target(X,Y), &discrete_rr(X,Y).
-conclusion(i,X,Y) :- target(X,Y), 1{&properPart_rr(X,Y); &equal_rr(X,Y); &partialOverlap_rr(X,Y); &properPart_rr(Y,X)}.
-conclusion(o,X,Y) :- target(X,Y), 1{&partialOverlap_rr(X,Y); &properPart_rr(Y,X); &discrete_rr(X,Y)}.
+conclusion(a,X,Y) :- target(X,Y), 1{&properPart(X,Y); &equal(X,Y)}.
+conclusion(e,X,Y) :- target(X,Y), &discrete(X,Y).
+conclusion(i,X,Y) :- target(X,Y), 1{&properPart(X,Y); &equal(X,Y); &partialOverlap(X,Y); &properPart(Y,X)}.
+conclusion(o,X,Y) :- target(X,Y), 1{&partialOverlap(X,Y); &properPart(Y,X); &discrete(X,Y)}.
 
 #show conclusion/3.
 
