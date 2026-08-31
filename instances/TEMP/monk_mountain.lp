@@ -30,6 +30,5 @@ line(mountain).
 
 
 yes :- &samePlace(monk1, monk2).
-yes :- &samePlace(monk1, monk2).
 
 

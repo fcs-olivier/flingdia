@@ -1,7 +1,7 @@
 %*
 metasp solve flingo --meta-config config.yaml \
                     --warn=no-atom-undefined \
-                    instances/ST/inertia_over_def.lp  1 \
+                    instances/TEMP/inertia_over_def.lp  1 \
                     -c display_time=7  \
                     --project=show \
                     -c n=2 

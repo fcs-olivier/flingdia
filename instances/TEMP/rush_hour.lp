@@ -1,7 +1,7 @@
 %*
 metasp solve flingo --meta-config config.yaml \
                     --warn=no-atom-undefined \
-                    instances/ST/rush_hour.lp  1 \
+                    instances/TEMP/rush_hour.lp  1 \
                     -c display_time=7  \
                     --project=show \
                     -c n=12 \
@@ -13,7 +13,7 @@ metasp solve flingo --meta-config config.yaml \
 
 metasp solve flingo --meta-config config.yaml \
                     --warn=no-atom-undefined \
-                    instances/ST/rush_hour.lp  1 \
+                    instances/TEMP/rush_hour.lp  1 \
                     -c display_time=7  \
                     --project=show \
                     -c n=12 \

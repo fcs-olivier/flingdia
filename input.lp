@@ -16,7 +16,7 @@ metasp solve flingo --meta-config config.yaml \
 
 point(a;b).
 rect(c).
-&out(a,c):- &initial.
+&out(a,b):- &initial.
 :- &final, not &in(a,c).
 
 {&move(a)}.

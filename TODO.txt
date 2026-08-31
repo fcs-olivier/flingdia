@@ -5,3 +5,5 @@
 - allow &eq(..., xlim)
 - Place actions between states in the python printer
 - Change all the K, T to I. 
+- enable not only &eq, but an improved version where we can specify the whole object directly. 
+  But what would we do with height, ... so the derived quantities? No, this is fine, we simply define left, bottom, height, width

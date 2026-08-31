@@ -636,7 +636,7 @@ class PrinterManager:
             #print("sym: ", sym)  # examples: true(point(a)), true(__left(a,b)), true(p), ... everything that starts with 'true'
             if sym.name in {"invalid_relation_arg", "invalid_action_arg"}:
                 kind = "relation" if sym.name == "invalid_relation_arg" else "action"
-                print(RED + "ERROR: Invalid " + kind + " >> " + str(sym.arguments[0])[2:] + " <<. Arguments have wrong sorts or use undeclared objects. Solving stopped." + RESET)
+                print(RED + "ERROR: Invalid " + kind + " >> " + str(sym.arguments[0])[2:] + " <<. No signature for arguments of these sorts. Solving stopped." + RESET)
                 return
 
         # shown=True is not always enough for derived spatial atoms after the
