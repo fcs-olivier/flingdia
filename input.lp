@@ -14,11 +14,13 @@ metasp solve flingo --meta-config config.yaml \
                     -c ymax=10 
 *%
 
-point(a;b).
-rect(c).
-&out(a,b):- &initial.
-:- &final, not &in(a,c).
+point(a;landmark).
+rect(b).
 
-{&move(a)}.
+players(a;b).
+
+&left(landmark, P):- players(P).
+%&left(b,c):- &initial.
+
 
 

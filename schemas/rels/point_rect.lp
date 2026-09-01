@@ -83,7 +83,7 @@ true(&out(P1,R2),K) :- c3_out_pr(P1,R2,K), formula(spatial, &out(P1,R2)), rel_ou
 true(&out(P1,R2),K) :- c4_out_pr(P1,R2,K), formula(spatial, &out(P1,R2)), rel_out_pr(P1,R2,K).
 
 
-%%%%%%%%%%%% left  %%%%%%%%%%%%%
+%%%%%%%%%%%% left_pr  %%%%%%%%%%%%%
 
 &sus{x(P1,K)}<left_side(R2,K) :- true(&left(P1,R2),K), rel_left_pr(P1,R2,K). 
 
@@ -93,7 +93,7 @@ true(&left(P1,R2),K):- formula(spatial, &left(P1,R2)),
 
 
 
-%%%%%%%%%%%% right  %%%%%%%%%%%%%
+%%%%%%%%%%%% right_pr  %%%%%%%%%%%%%
 
 &sus{right_side(R2,K)}<x(P1,K) :- true(&right(P1,R2),K), rel_right_pr(P1,R2,K). 
 
