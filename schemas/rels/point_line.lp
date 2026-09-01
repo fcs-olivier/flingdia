@@ -2,6 +2,31 @@
 
 %%%%%%%%%  POINT-LINE  %%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%%% left of a vertical line %%%%%%%%%%%%%
+% The endpoint equality enforces verticality directly, without using
+% vertical(L) as a sub-relation.
+&sus{xstart(L,K)} = xend(L,K) :- true(&left(P,L),K), rel_left_pl(P,L,K).
+&sus{x(P,K)} < xstart(L,K)    :- true(&left(P,L),K), rel_left_pl(P,L,K).
+
+true(&left(P,L),K) :- formula(spatial, &left(P,L)),
+                      &sus{xstart(L,K)} = xend(L,K),
+                      &sus{x(P,K)} < xstart(L,K),
+                      time(K), rel_left_pl(P,L,K).
+
+
+%%%%%%%%%%%%%% right of a vertical line %%%%%%%%%%%%%
+&sus{xstart(L,K)} = xend(L,K) :- true(&right(P,L),K), rel_right_pl(P,L,K).
+&sus{x(P,K)} > xstart(L,K)    :- true(&right(P,L),K), rel_right_pl(P,L,K).
+
+true(&right(P,L),K) :- formula(spatial, &right(P,L)),
+                       &sus{xstart(L,K)} = xend(L,K),
+                       &sus{x(P,K)} > xstart(L,K),
+                       time(K), rel_right_pl(P,L,K).
+
+
+
+
 %%%%%%%%%%%%%% on  %%%%%%%%%%%%%
 % A point is on a finite horizontal, vertical, or +/-45-degree diagonal
 % segment. The cases provide founded support when the relation is asserted.

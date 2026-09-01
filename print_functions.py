@@ -50,10 +50,17 @@ def print_val4diag_table(val4diag, state=None):
     
     rows = []
     for sort, objs in val4diag.items():
-        for name, obj in objs.items():  
+        for name, obj in objs.items():
+            preferred_order = {
+                "line": ("xstart", "ystart", "xend", "yend"),
+            }.get(sort, ())
+            ordered_params = (
+                [param for param in preferred_order if param in obj]
+                + sorted(param for param in obj if param not in preferred_order)
+            )
             params = ", ".join(
                 f"{param}={obj[param]}"
-                for param in sorted(obj)
+                for param in ordered_params
             )
             rows.append((sort, name, params))
 

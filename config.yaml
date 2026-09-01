@@ -10,6 +10,7 @@ semantics-encoding:
   - "schemas/rels/relation_signatures.lp" # Generic relation signatures
   - "schemas/rels/line_.lp"     # For relations starting here
   - "schemas/rels/line_point.lp"
+  - "schemas/rels/line_point_point.lp"
   - "schemas/rels/point_line.lp"
   - "schemas/rels/point_.lp"
   - "schemas/rels/point_point.lp"

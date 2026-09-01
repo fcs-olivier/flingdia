@@ -29,10 +29,12 @@ rel_on_rr(R1,R2,K) :- formula(spatial, &on(R1,R2)), true(rect(R1),K), true(rect(
 
 rel_left_pp(P1,P2,K) :- formula(spatial, &left(P1,P2)), true(point(P1),K), true(point(P2),K), time(K).
 rel_left_pr(P,R,K) :- formula(spatial, &left(P,R)), true(point(P),K), true(rect(R),K), time(K).
+rel_left_pl(P,L,K) :- formula(spatial, &left(P,L)), true(point(P),K), true(line(L),K), time(K).
 rel_left_rr(R1,R2,K) :- formula(spatial, &left(R1,R2)), true(rect(R1),K), true(rect(R2),K), time(K).
 
 rel_right_pp(P1,P2,K) :- formula(spatial, &right(P1,P2)), true(point(P1),K), true(point(P2),K), time(K).
 rel_right_pr(P,R,K) :- formula(spatial, &right(P,R)), true(point(P),K), true(rect(R),K), time(K).
+rel_right_pl(P,L,K) :- formula(spatial, &right(P,L)), true(point(P),K), true(line(L),K), time(K).
 rel_right_rr(R1,R2,K) :- formula(spatial, &right(R1,R2)), true(rect(R1),K), true(rect(R2),K), time(K).
 
 rel_alignedY_pp(P1,P2,K) :- formula(spatial, &alignedY(P1,P2)), true(point(P1),K), true(point(P2),K), time(K).
@@ -113,11 +115,13 @@ invalid_relation_arg(&on(A,B)) :- formula(spatial, &on(A,B)), time(K), not valid
 
 valid_relation_arg(&left(A,B),K) :- rel_left_pp(A,B,K).
 valid_relation_arg(&left(A,B),K) :- rel_left_pr(A,B,K).
+valid_relation_arg(&left(A,B),K) :- rel_left_pl(A,B,K).
 valid_relation_arg(&left(A,B),K) :- rel_left_rr(A,B,K).
 invalid_relation_arg(&left(A,B)) :- formula(spatial, &left(A,B)), time(K), not valid_relation_arg(&left(A,B),K).
 
 valid_relation_arg(&right(A,B),K) :- rel_right_pp(A,B,K).
 valid_relation_arg(&right(A,B),K) :- rel_right_pr(A,B,K).
+valid_relation_arg(&right(A,B),K) :- rel_right_pl(A,B,K).
 valid_relation_arg(&right(A,B),K) :- rel_right_rr(A,B,K).
 invalid_relation_arg(&right(A,B)) :- formula(spatial, &right(A,B)), time(K), not valid_relation_arg(&right(A,B),K).
 
