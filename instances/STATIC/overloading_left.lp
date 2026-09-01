@@ -2,16 +2,16 @@
 metasp solve flingo --meta-config config.yaml \
                     --project=show \
                     --warn=no-atom-undefined \
-                    instances/STATIC/overloading_left.lp  0 \
+                    instances/STATIC/overloading_left.lp  1 \
                     -c display_time=7  
 *%
 
-point(a;landmark).
-rect(b).
+point(ball;landmark).
+rect(house).
 
-players(a;b).
+objects(ball;house).
 
-&left(landmark, P):- players(P).
+&left(landmark, P):- objects(P).
 
 
 
