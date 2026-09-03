@@ -1,4 +1,8 @@
 /* Keep the left nav fully expanded; hide fold controls. */
+.md-nav--primary > .md-nav__title {
+  display: none;
+}
+
 .md-nav--primary .md-nav__toggle ~ .md-nav {
   display: grid;
   grid-template-rows: 1fr;
