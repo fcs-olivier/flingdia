@@ -9,8 +9,8 @@ spec_path, output_path = sys.argv[1:3]
 with open(spec_path, encoding="utf-8") as file:
     spec = json.load(file)
 
-panel_width, height = 210, 230
-grid_left, grid_bottom, grid_step = 30, 190, 40
+panel_width, height = 330, 350
+grid_left, grid_bottom, grid_step = 30, 310, 40
 svg = [
     f'<svg xmlns="http://www.w3.org/2000/svg" '
     f'width="{panel_width * len(spec["cases"])}" height="{height}" '
@@ -43,18 +43,18 @@ def entity_color(name, holds):
 
 for case_index, case in enumerate(spec["cases"]):
     left = case_index * panel_width + grid_left
-    for value in range(5):
+    for value in range(8):
         x, y = left + value * grid_step, grid_bottom - value * grid_step
         svg.extend([
             f'<line class="grid" x1="{x}" y1="30" x2="{x}" y2="{grid_bottom}"/>',
-            f'<line class="grid" x1="{left}" y1="{y}" x2="{left + 160}" y2="{y}"/>',
+            f'<line class="grid" x1="{left}" y1="{y}" x2="{left + 280}" y2="{y}"/>',
             f'<text x="{x}" y="{grid_bottom + 20}" text-anchor="middle">{value}</text>',
             f'<text x="{left - 10}" y="{y + 4}" text-anchor="end">{value}</text>',
         ])
     svg.extend([
-        f'<line class="axis" x1="{left}" y1="{grid_bottom}" x2="{left + 170}" y2="{grid_bottom}"/>',
+        f'<line class="axis" x1="{left}" y1="{grid_bottom}" x2="{left + 290}" y2="{grid_bottom}"/>',
         f'<line class="axis" x1="{left}" y1="{grid_bottom}" x2="{left}" y2="20"/>',
-        f'<text x="{left + 178}" y="{grid_bottom + 4}">x</text>',
+        f'<text x="{left + 298}" y="{grid_bottom + 4}">x</text>',
         f'<text x="{left - 4}" y="15">y</text>',
     ])
 

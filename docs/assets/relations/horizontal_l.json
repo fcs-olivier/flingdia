@@ -6,8 +6,8 @@
     "false": "#dc2626"
   },
   "cases": [
-    {"holds": true, "L": {"type": "line", "start": [1, 2], "end": [3, 2], "label_at": [2, 2]}},
-    {"holds": true, "L": {"type": "line", "start": [3, 2], "end": [1, 2], "label_at": [2, 2]}},
-    {"holds": false, "L": {"type": "line", "start": [1, 1], "end": [3, 3], "label_at": [2, 2]}}
+    {"holds": true, "L": {"type": "line", "start": [2, 3], "end": [4, 3], "label_at": [3, 3]}},
+    {"holds": true, "L": {"type": "line", "start": [4, 3], "end": [2, 3], "label_at": [3, 3]}},
+    {"holds": false, "L": {"type": "line", "start": [2, 2], "end": [4, 4], "label_at": [3, 3]}}
   ]
 }
