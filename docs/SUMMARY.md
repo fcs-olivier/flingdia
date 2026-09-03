@@ -1,0 +1,35 @@
+* Getting Started
+    * [Quick start guide](use/quick-start.md)
+    * [Installation](use/installation.md)
+    * [Help](use/help.md)
+* Reference
+    * [Reference](reference/index.md)
+    * Transformations
+        * [Transformations](reference/transformations/index.md)
+        * [Safety and Externals](reference/transformations/safety-externals.md)
+        * [Show statements](reference/transformations/show.md)
+    * [Syntax](reference/syntax/index.md)
+    * Semantics
+        * [Semantics](reference/semantics/index.md)
+        * [`meta.lp`](reference/semantics/encodings/meta.md)
+        * [`meta-time.lp`](reference/semantics/encodings/meta-time.md)
+        * [`show.lp`](reference/semantics/encodings/show.md)
+        * [`show-time.lp`](reference/semantics/encodings/show-time.md)
+        * [`reify-defined.lp`](reference/semantics/encodings/reify-defined.md)
+        * [`reify-defined-metasp.lp`](reference/semantics/encodings/reify-defined-metasp.md)
+    * [Printing](reference/print.md)
+    * [Logging](reference/log.md)
+    * [Testing](reference/test.md)
+    * [User interface](reference/ui.md)
+    * [API](reference/api/index.md)
+* Examples
+    * [Examples](examples/index.md)
+    * [Temporal Equilibrium Logic](examples/tel.md)
+    * [Metric Equilibrium Logic](examples/mel.md)
+    * [Dynamic Equilibrium Logic](examples/del.md)
+    * [Boolean](examples/bool.md)
+* Community
+    * [Contributing](community/CONTRIBUTING.md)
+    * [Changes](community/CHANGES.md)
+    * [Development](community/DEVELOPMENT.md)
+    * [Deployment](community/DEPLOYMENT.md)
