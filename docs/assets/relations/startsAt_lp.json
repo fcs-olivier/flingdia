@@ -1,0 +1,12 @@
+{
+  "relation": "startsAt_lp",
+  "subject": "L",
+  "colors": {
+    "true": "#16a34a",
+    "false": "#dc2626"
+  },
+  "cases": [
+    {"holds": true, "L": {"type": "line", "start": [1, 1], "end": [3, 3], "label_at": [2, 2]}, "P": [1, 1]},
+    {"holds": false, "L": {"type": "line", "start": [1, 1], "end": [3, 3], "label_at": [2, 2]}, "P": [3, 3]}
+  ]
+}

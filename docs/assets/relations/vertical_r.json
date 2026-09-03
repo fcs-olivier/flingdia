@@ -1,0 +1,46 @@
+{
+  "relation": "vertical_r",
+  "subject": "R",
+  "colors": {
+    "true": "#16a34a",
+    "false": "#dc2626"
+  },
+  "cases": [
+    {
+      "holds": true,
+      "R": {
+        "type": "rect",
+        "bounds": [
+          1.5,
+          0.5,
+          2.5,
+          3.5
+        ]
+      }
+    },
+    {
+      "holds": false,
+      "R": {
+        "type": "rect",
+        "bounds": [
+          1,
+          1,
+          3,
+          3
+        ]
+      }
+    },
+    {
+      "holds": false,
+      "R": {
+        "type": "rect",
+        "bounds": [
+          0.5,
+          1.5,
+          3.5,
+          2.5
+        ]
+      }
+    }
+  ]
+}

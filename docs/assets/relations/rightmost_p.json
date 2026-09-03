@@ -1,0 +1,13 @@
+{
+  "relation": "rightmost_p",
+  "subject": "P1",
+  "colors": {
+    "true": "#16a34a",
+    "false": "#dc2626"
+  },
+  "cases": [
+    {"holds": true, "P1": [3, 1], "P2": [1, 1], "P3": [2, 3]},
+    {"holds": true, "P1": [3, 1], "P2": [1, 1], "P3": [3, 3]},
+    {"holds": false, "P1": [2, 1], "P2": [3, 3], "P3": [1, 1]}
+  ]
+}

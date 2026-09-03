@@ -1,8 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  if (!window.location.pathname.endsWith("/schemas/rels/point_point/")) {
-    return;
-  }
-
   const toc = document.querySelector(
     ".md-sidebar--secondary .md-nav__list[data-md-component='toc']",
   );
@@ -14,9 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  for (const link of toc.querySelectorAll(
-    'a[href="#schemas/rels/point_point.lp"]',
-  )) {
+  for (const link of toc.querySelectorAll('a[href$=".lp"]')) {
     link.closest("li")?.remove();
   }
 

@@ -15,7 +15,10 @@ nav:
       - Geometric sorts: schemas/geo_sorts.md
       - Relations:
           - line: schemas/rels/line_.md
+          - line-point: schemas/rels/line_point.md
+          - line-point-point: schemas/rels/line_point_point.md
           - point: schemas/rels/point_.md
+          - point-line: schemas/rels/point_line.md
           - point-point: schemas/rels/point_point.md
           - point-rect: schemas/rels/point_rect.md
           - rect: schemas/rels/rect_.md

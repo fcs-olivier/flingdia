@@ -1,11 +1,12 @@
+%%% POINT LINE
 
-
-%%%%%%%%%  POINT-LINE  %%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%% left of a vertical line %%%%%%%%%%%%%
-% The endpoint equality enforces verticality directly, without using
-% vertical(L) as a sub-relation.
+%# `left(P,L)`
+%
+% Point `P` is left of line `L` exactly when `L` is vertical and
+% the `x` coordinate of `P` is less than the line's `x` coordinate.
+%
+% ![`&left`](../../assets/relations/left_pl.svg)
+%
 &sus{xstart(L,K)} = xend(L,K) :- true(&left(P,L),K), rel_left_pl(P,L,K).
 &sus{x(P,K)} < xstart(L,K)    :- true(&left(P,L),K), rel_left_pl(P,L,K).
 
@@ -14,8 +15,13 @@ true(&left(P,L),K) :- formula(spatial, &left(P,L)),
                       &sus{x(P,K)} < xstart(L,K),
                       time(K), rel_left_pl(P,L,K).
 
-
-%%%%%%%%%%%%%% right of a vertical line %%%%%%%%%%%%%
+%# `right(P,L)`
+%
+% Point `P` is right of line `L` exactly when `L` is vertical and
+% the `x` coordinate of `P` is greater than the line's `x` coordinate.
+%
+% ![`&right`](../../assets/relations/right_pl.svg)
+%
 &sus{xstart(L,K)} = xend(L,K) :- true(&right(P,L),K), rel_right_pl(P,L,K).
 &sus{x(P,K)} > xstart(L,K)    :- true(&right(P,L),K), rel_right_pl(P,L,K).
 
@@ -23,13 +29,13 @@ true(&right(P,L),K) :- formula(spatial, &right(P,L)),
                        &sus{xstart(L,K)} = xend(L,K),
                        &sus{x(P,K)} > xstart(L,K),
                        time(K), rel_right_pl(P,L,K).
-
-
-
-
-%%%%%%%%%%%%%% on  %%%%%%%%%%%%%
-% A point is on a finite horizontal, vertical, or +/-45-degree diagonal
-% segment. The cases provide founded support when the relation is asserted.
+%# `on(P,L)`
+%
+% Point `P` is on line segment `L` exactly when it lies within its endpoints
+% on a horizontal, vertical, or slope `1` or `-1` diagonal segment.
+%
+% ![`&on`](../../assets/relations/on_pl.svg)
+%
 on_h_pl(P,L,K) |
 on_v_pl(P,L,K) |
 on_diag_pos_pl(P,L,K) |

@@ -1,18 +1,13 @@
+%%% RECT POINT
 
-%%%%%%%%%%  RECTANGLE-POINT  %%%%%%%%%%%%%
-
-%%%%%%%%%%%% touches  %%%%%%%%%%%%%
-% TRUE: point on the boundary of the rectangle
-%    +---------+                   +----*----+
-%    |         | R                 |         | R
-%    *P        |                   |         |
-%    +---------+                   +---------+
+%# `touches(R1,P2)`
 %
-% FALSE: strictly inside             FALSE: outside
-%    +---------+                   +---------+
-%    |    *P   | R                 |         | R
-%    |         |                   |         |    *P
-%    +---------+                   +---------+
+% Point `P2` lies within or on rectangle `R1` and has an `x` coordinate equal
+% to its left or right side, or a `y` coordinate equal to its bottom or top
+% side.
+%
+% ![`&touches`](../../assets/relations/touches_rp.svg)
+%
 
 % Closed containment.
 &sus{x(P2,K)}>=left_side(R1,K)  :- true(&touches(R1,P2),K), rel_touches_rp(R1,P2,K).

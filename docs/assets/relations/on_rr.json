@@ -1,0 +1,73 @@
+{
+  "relation": "on_rr",
+  "subject": "R1",
+  "colors": {
+    "true": "#16a34a",
+    "false": "#dc2626"
+  },
+  "cases": [
+    {
+      "holds": true,
+      "R1": {
+        "type": "rect",
+        "bounds": [
+          1,
+          2,
+          3,
+          3.5
+        ]
+      },
+      "R2": {
+        "type": "rect",
+        "bounds": [
+          0.5,
+          0.5,
+          2.5,
+          2
+        ]
+      }
+    },
+    {
+      "holds": false,
+      "R1": {
+        "type": "rect",
+        "bounds": [
+          2.5,
+          2,
+          4,
+          3.5
+        ]
+      },
+      "R2": {
+        "type": "rect",
+        "bounds": [
+          1,
+          0.5,
+          2.5,
+          2
+        ]
+      }
+    },
+    {
+      "holds": false,
+      "R1": {
+        "type": "rect",
+        "bounds": [
+          1,
+          2.5,
+          3,
+          4
+        ]
+      },
+      "R2": {
+        "type": "rect",
+        "bounds": [
+          0.5,
+          0.5,
+          2.5,
+          2
+        ]
+      }
+    }
+  ]
+}

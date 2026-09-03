@@ -1,0 +1,13 @@
+{
+  "relation": "diagonal_l",
+  "subject": "L",
+  "colors": {
+    "true": "#16a34a",
+    "false": "#dc2626"
+  },
+  "cases": [
+    {"holds": true, "L": {"type": "line", "start": [1, 1], "end": [3, 3], "label_at": [2, 2]}},
+    {"holds": true, "L": {"type": "line", "start": [1, 3], "end": [3, 1], "label_at": [2, 2]}},
+    {"holds": false, "L": {"type": "line", "start": [1, 1], "end": [2, 3], "label_at": [1.5, 2]}}
+  ]
+}

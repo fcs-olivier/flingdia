@@ -1,3 +1,5 @@
+%%% POINT POINT
+
 %# `left(P1,P2)`
 %
 % Point `P1` is strictly to the left of point `P2`.

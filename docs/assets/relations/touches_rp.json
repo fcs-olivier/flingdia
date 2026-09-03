@@ -1,0 +1,13 @@
+{
+  "relation": "touches_rp",
+  "subject": "R1",
+  "colors": {
+    "true": "#16a34a",
+    "false": "#dc2626"
+  },
+  "cases": [
+    {"holds": true, "R1": {"type": "rect", "bounds": [1, 1, 3, 3]}, "P2": [1, 2]},
+    {"holds": true, "R1": {"type": "rect", "bounds": [1, 1, 3, 3]}, "P2": [3, 3]},
+    {"holds": false, "R1": {"type": "rect", "bounds": [1, 1, 3, 3]}, "P2": [2, 2]}
+  ]
+}

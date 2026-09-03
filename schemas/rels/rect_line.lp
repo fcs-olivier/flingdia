@@ -1,22 +1,12 @@
+%%% RECT LINE
 
-
-%%%%%%%%%  RECT-LINE  %%%%%%%%%%%%%
-%%%%%%%%%%%%%%% on  %%%%%%%%%%%%% 
-% TRUE: line longer than base        TRUE: line same length as base
-% 3 | .   .   .   .                  3 | .   .   .   .
-% 2 | .   +-------+                  2 | .   +-------+
-% 1 | .   |       |                  1 | .   |       |
-% 0 | S---+-------+---E              0 | .   S-------E
-%   +----------------                  +----------------
-%     0   1   2   3  x                  0   1   2   3  x
-
-% FALSE: line too short              FALSE: line is not horizontal     FALSE: line not horizontal
-% 3 | .   .   .   .                  3 | .   .   .   .                  3 | .   .   E   .
-% 2 | .   +-------+                  2 | .   E-------+                  2 | .   +-------+
-% 1 | .   |       |                  1 | .   |       |                  1 | .   | /     |
-% 0 | S---+---E   +                  0 | .   S-------+                  0 | .   S-------+
-%   +----------------                  +----------------                  +----------------
-%     0   1   2   3  x                  0   1   2   3  x                  0   1   2   3  x
+%# `on(R1,L2)`
+%
+% Line `L2` is horizontal at the bottom side of rectangle `R1`, starts at or
+% left of its left side, and ends at or right of its right side.
+%
+% ![`&on`](../../assets/relations/on_rl.svg)
+%
 
 &sus{xstart(L2,K)}<= left_side(R1,K) :- true(&on(R1,L2),K), rel_on_rl(R1,L2,K).
 &sus{xend(L2,K)}>= right_side(R1,K) :- true(&on(R1,L2),K), rel_on_rl(R1,L2,K).
