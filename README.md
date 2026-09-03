@@ -23,3 +23,22 @@ metasp solve flingo --meta-config config.yaml --warn=no-atom-undefined \
 ```
 
 `config.yaml` lists the syntax, semantics, schemas, and printer. Switch `printer` to `table_printer` if you do not want diagrams. Instances live under `instances/`; the first comment block of each file shows its intended command.
+
+## Documentation (optional)
+
+Not needed to use the system. Comments in the `.lp` files can be rendered locally with [clindocs](https://potassco.org/clindocs/) (which includes MkDocs):
+
+```bash
+pip install clindocs
+mkdocs serve -a 127.0.0.1:8123
+```
+
+Then open http://127.0.0.1:8123/. Stop with `Ctrl+C`.
+
+After changing a relation figure's JSON specification, regenerate its SVG:
+
+```bash
+python docs/assets/generate_doc_figure.py \
+  docs/assets/relations/samePlace_pp.json \
+  docs/assets/relations/samePlace_pp.svg
+```

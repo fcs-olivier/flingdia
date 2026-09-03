@@ -1,0 +1,12 @@
+{
+  "relation": "samePlace_pp",
+  "subject": "P1",
+  "colors": {
+    "true": "#16a34a",
+    "false": "#dc2626"
+  },
+  "cases": [
+    {"holds": true, "P1": [1, 1], "P2": [1, 1]},
+    {"holds": false, "P1": [1, 1], "P2": [3, 1]}
+  ]
+}
