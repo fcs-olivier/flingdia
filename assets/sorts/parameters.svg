@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="990" height="350" viewBox="0 0 990 350">
+<defs>
+<marker id="dim" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+<path d="M0,0 L7,3.5 L0,7" fill="none" stroke="#1d4ed8" stroke-width="1.2"/>
+</marker>
+<marker id="dim-start" markerWidth="7" markerHeight="7" refX="1" refY="3.5" orient="auto">
+<path d="M7,0 L0,3.5 L7,7" fill="none" stroke="#1d4ed8" stroke-width="1.2"/>
+</marker>
+</defs>
+<style>
+text{font:13px sans-serif}
+.grid{stroke:#bbb;stroke-width:1}
+.axis{stroke:#333;stroke-width:2}
+.shape{fill:none;stroke-width:3}
+.guide{stroke:#93c5fd;stroke-width:1.4;stroke-dasharray:5 4}
+.param{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#1d4ed8;font-weight:700}
+.title{font-weight:700}
+</style>
+<line class="grid" x1="36" y1="30" x2="36" y2="310"/>
+<line class="grid" x1="36" y1="310" x2="316" y2="310"/>
+<text x="36" y="330" text-anchor="middle">0</text>
+<text x="26" y="314" text-anchor="end">0</text>
+<line class="grid" x1="76" y1="30" x2="76" y2="310"/>
+<line class="grid" x1="36" y1="270" x2="316" y2="270"/>
+<text x="76" y="330" text-anchor="middle">1</text>
+<text x="26" y="274" text-anchor="end">1</text>
+<line class="grid" x1="116" y1="30" x2="116" y2="310"/>
+<line class="grid" x1="36" y1="230" x2="316" y2="230"/>
+<text x="116" y="330" text-anchor="middle">2</text>
+<text x="26" y="234" text-anchor="end">2</text>
+<line class="grid" x1="156" y1="30" x2="156" y2="310"/>
+<line class="grid" x1="36" y1="190" x2="316" y2="190"/>
+<text x="156" y="330" text-anchor="middle">3</text>
+<text x="26" y="194" text-anchor="end">3</text>
+<line class="grid" x1="196" y1="30" x2="196" y2="310"/>
+<line class="grid" x1="36" y1="150" x2="316" y2="150"/>
+<text x="196" y="330" text-anchor="middle">4</text>
+<text x="26" y="154" text-anchor="end">4</text>
+<line class="grid" x1="236" y1="30" x2="236" y2="310"/>
+<line class="grid" x1="36" y1="110" x2="316" y2="110"/>
+<text x="236" y="330" text-anchor="middle">5</text>
+<text x="26" y="114" text-anchor="end">5</text>
+<line class="grid" x1="276" y1="30" x2="276" y2="310"/>
+<line class="grid" x1="36" y1="70" x2="316" y2="70"/>
+<text x="276" y="330" text-anchor="middle">6</text>
+<text x="26" y="74" text-anchor="end">6</text>
+<line class="grid" x1="316" y1="30" x2="316" y2="310"/>
+<line class="grid" x1="36" y1="30" x2="316" y2="30"/>
+<text x="316" y="330" text-anchor="middle">7</text>
+<text x="26" y="34" text-anchor="end">7</text>
+<line class="axis" x1="36" y1="310" x2="326" y2="310"/>
+<line class="axis" x1="36" y1="310" x2="36" y2="20"/>
+<text x="334" y="314">x</text>
+<text x="32" y="15">y</text>
+<text class="title" x="176" y="18" text-anchor="middle">point(P)</text>
+<line class="guide" x1="196" y1="110" x2="196" y2="310"/>
+<line class="guide" x1="196" y1="110" x2="36" y2="110"/>
+<circle cx="196" cy="110" r="5" fill="#111827"/>
+<text x="204" y="102" fill="#111827">P</text>
+<text class="param" x="196" y="300" text-anchor="middle">x</text>
+<text class="param" x="48" y="114" text-anchor="start">y</text>
+<line class="grid" x1="366" y1="30" x2="366" y2="310"/>
+<line class="grid" x1="366" y1="310" x2="646" y2="310"/>
+<text x="366" y="330" text-anchor="middle">0</text>
+<text x="356" y="314" text-anchor="end">0</text>
+<line class="grid" x1="406" y1="30" x2="406" y2="310"/>
+<line class="grid" x1="366" y1="270" x2="646" y2="270"/>
+<text x="406" y="330" text-anchor="middle">1</text>
+<text x="356" y="274" text-anchor="end">1</text>
+<line class="grid" x1="446" y1="30" x2="446" y2="310"/>
+<line class="grid" x1="366" y1="230" x2="646" y2="230"/>
+<text x="446" y="330" text-anchor="middle">2</text>
+<text x="356" y="234" text-anchor="end">2</text>
+<line class="grid" x1="486" y1="30" x2="486" y2="310"/>
+<line class="grid" x1="366" y1="190" x2="646" y2="190"/>
+<text x="486" y="330" text-anchor="middle">3</text>
+<text x="356" y="194" text-anchor="end">3</text>
+<line class="grid" x1="526" y1="30" x2="526" y2="310"/>
+<line class="grid" x1="366" y1="150" x2="646" y2="150"/>
+<text x="526" y="330" text-anchor="middle">4</text>
+<text x="356" y="154" text-anchor="end">4</text>
+<line class="grid" x1="566" y1="30" x2="566" y2="310"/>
+<line class="grid" x1="366" y1="110" x2="646" y2="110"/>
+<text x="566" y="330" text-anchor="middle">5</text>
+<text x="356" y="114" text-anchor="end">5</text>
+<line class="grid" x1="606" y1="30" x2="606" y2="310"/>
+<line class="grid" x1="366" y1="70" x2="646" y2="70"/>
+<text x="606" y="330" text-anchor="middle">6</text>
+<text x="356" y="74" text-anchor="end">6</text>
+<line class="grid" x1="646" y1="30" x2="646" y2="310"/>
+<line class="grid" x1="366" y1="30" x2="646" y2="30"/>
+<text x="646" y="330" text-anchor="middle">7</text>
+<text x="356" y="34" text-anchor="end">7</text>
+<line class="axis" x1="366" y1="310" x2="656" y2="310"/>
+<line class="axis" x1="366" y1="310" x2="366" y2="20"/>
+<text x="664" y="314">x</text>
+<text x="362" y="15">y</text>
+<text class="title" x="506" y="18" text-anchor="middle">rect(R)</text>
+<rect class="shape" x="446" y="110" width="120" height="120" stroke="#111827"/>
+<text x="506.0" y="174.0" text-anchor="middle" fill="#111827">R</text>
+<line class="guide" x1="446" y1="230" x2="446" y2="310"/>
+<line class="guide" x1="446" y1="230" x2="366" y2="230"/>
+<line x1="446" y1="248" x2="566" y2="248" stroke="#1d4ed8" stroke-width="1.4" marker-start="url(#dim-start)" marker-end="url(#dim)"/>
+<text class="param" x="506.0" y="262" text-anchor="middle">width</text>
+<line x1="582" y1="230" x2="582" y2="110" stroke="#1d4ed8" stroke-width="1.4" marker-start="url(#dim-start)" marker-end="url(#dim)"/>
+<text class="param" x="590" y="174.0" text-anchor="start">height</text>
+<text class="param" x="446" y="300" text-anchor="middle">left_side</text>
+<text class="param" x="378" y="234" text-anchor="start">bottom</text>
+<line class="grid" x1="696" y1="30" x2="696" y2="310"/>
+<line class="grid" x1="696" y1="310" x2="976" y2="310"/>
+<text x="696" y="330" text-anchor="middle">0</text>
+<text x="686" y="314" text-anchor="end">0</text>
+<line class="grid" x1="736" y1="30" x2="736" y2="310"/>
+<line class="grid" x1="696" y1="270" x2="976" y2="270"/>
+<text x="736" y="330" text-anchor="middle">1</text>
+<text x="686" y="274" text-anchor="end">1</text>
+<line class="grid" x1="776" y1="30" x2="776" y2="310"/>
+<line class="grid" x1="696" y1="230" x2="976" y2="230"/>
+<text x="776" y="330" text-anchor="middle">2</text>
+<text x="686" y="234" text-anchor="end">2</text>
+<line class="grid" x1="816" y1="30" x2="816" y2="310"/>
+<line class="grid" x1="696" y1="190" x2="976" y2="190"/>
+<text x="816" y="330" text-anchor="middle">3</text>
+<text x="686" y="194" text-anchor="end">3</text>
+<line class="grid" x1="856" y1="30" x2="856" y2="310"/>
+<line class="grid" x1="696" y1="150" x2="976" y2="150"/>
+<text x="856" y="330" text-anchor="middle">4</text>
+<text x="686" y="154" text-anchor="end">4</text>
+<line class="grid" x1="896" y1="30" x2="896" y2="310"/>
+<line class="grid" x1="696" y1="110" x2="976" y2="110"/>
+<text x="896" y="330" text-anchor="middle">5</text>
+<text x="686" y="114" text-anchor="end">5</text>
+<line class="grid" x1="936" y1="30" x2="936" y2="310"/>
+<line class="grid" x1="696" y1="70" x2="976" y2="70"/>
+<text x="936" y="330" text-anchor="middle">6</text>
+<text x="686" y="74" text-anchor="end">6</text>
+<line class="grid" x1="976" y1="30" x2="976" y2="310"/>
+<line class="grid" x1="696" y1="30" x2="976" y2="30"/>
+<text x="976" y="330" text-anchor="middle">7</text>
+<text x="686" y="34" text-anchor="end">7</text>
+<line class="axis" x1="696" y1="310" x2="986" y2="310"/>
+<line class="axis" x1="696" y1="310" x2="696" y2="20"/>
+<text x="994" y="314">x</text>
+<text x="692" y="15">y</text>
+<text class="title" x="836" y="18" text-anchor="middle">line(L)</text>
+<line class="shape" x1="776" y1="230" x2="936" y2="110" stroke="#111827"/>
+<circle cx="776" cy="230" r="4" fill="#111827"/>
+<circle cx="936" cy="110" r="4" fill="#111827"/>
+<text x="866.0" y="164.0" fill="#111827">L</text>
+<line class="guide" x1="776" y1="230" x2="776" y2="310"/>
+<line class="guide" x1="776" y1="230" x2="696" y2="230"/>
+<line class="guide" x1="936" y1="110" x2="936" y2="310"/>
+<line class="guide" x1="936" y1="110" x2="696" y2="110"/>
+<text class="param" x="776" y="300" text-anchor="middle">xstart</text>
+<text class="param" x="936" y="300" text-anchor="middle">xend</text>
+<text class="param" x="708" y="234" text-anchor="start">ystart</text>
+<text class="param" x="708" y="114" text-anchor="start">yend</text>
+</svg>

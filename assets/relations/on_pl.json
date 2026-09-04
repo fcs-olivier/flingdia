@@ -1,0 +1,13 @@
+{
+  "relation": "on_pl",
+  "subject": "P",
+  "colors": {
+    "true": "#16a34a",
+    "false": "#dc2626"
+  },
+  "cases": [
+    {"holds": true, "P": [3, 3], "L": {"type": "line", "start": [2, 2], "end": [4, 4], "label_at": [3, 3]}},
+    {"holds": true, "P": [3, 4], "L": {"type": "line", "start": [3, 2], "end": [3, 4], "label_at": [3, 3]}},
+    {"holds": false, "P": [6, 3], "L": {"type": "line", "start": [2, 3], "end": [4, 3], "label_at": [3, 3]}}
+  ]
+}

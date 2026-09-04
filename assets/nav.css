@@ -1,0 +1,57 @@
+/* Keep the left nav fully expanded; hide fold controls. */
+.md-nav--primary > .md-nav__title {
+  display: none;
+}
+
+.md-nav--primary .md-nav__toggle ~ .md-nav {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.md-nav--primary .md-nav__toggle ~ .md-nav > .md-nav__list {
+  overflow: visible;
+}
+
+.md-nav--primary .md-nav__item--nested > .md-nav__link {
+  pointer-events: none;
+  cursor: default;
+  font-weight: 700;
+}
+
+.md-nav--primary .md-nav__item--nested .md-nav__icon {
+  display: none;
+}
+
+/* Emphasize predicate signatures in rendered ASP encodings. */
+.asp-doc h3 code {
+  font-size: inherit;
+  font-weight: 700;
+}
+
+.md-typeset blockquote:has(.paper-citation) {
+  font-size: 0.82em;
+  margin: 0.4em 0 0.8em;
+  padding: 0.15em 0 0.15em 0.7em;
+}
+
+.md-typeset blockquote:has(.paper-citation) .paper-citation {
+  margin: 0;
+}
+
+.md-typeset img {
+  width: 100%;
+  height: auto;
+  margin: 0.2rem 0 0.8rem;
+} 
+
+/* Visually separate the right-hand table-of-contents label from its links. */
+.md-sidebar--secondary {
+  width: 8rem;
+}
+
+.md-sidebar--secondary .md-nav__title {
+  border-bottom: 1px solid var(--md-default-fg-color--lighter);
+  color: var(--md-primary-fg-color);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
