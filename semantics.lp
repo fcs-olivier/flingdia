@@ -18,11 +18,7 @@
 
 
 %%%%%%%%%  default SPACE and TIME LIMITS  %%%%%%%%%%%%%
-% if any of these constants are provided as an argument, they will override these default values
-% space limits are available as constants in the input file in either case
-#const xmin = 0. #const xmax = 10.
-#const ymin = 0. #const ymax = 10.
-#const zmin = 0. #const zmax = 10.
+
 
 #const n = 0.
 
@@ -75,19 +71,3 @@ true(F,J) :- until_witness(F,G,I,K), time(J), I <= J < K.
 % is an additional canonicalisation or optimisation choice, not part of ordinary until semantics.
 
 
-
-
-
-
-%*
-metasp solve flingo --meta-config config.yaml \
-                    --warn=no-atom-undefined \
-                    input.lp  0 \
-                    -c display_time=7  \
-                    --project=show \
-                    -c n=2 \
-                    -c xmin=0 \
-                    -c xmax=15 \
-                    -c ymin=0 \
-                    -c ymax=10 
-*%
