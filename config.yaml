@@ -29,7 +29,7 @@ semantics-encoding:
 
 python-scripts: ["print_functions.py"] # comment all the printers to see the raw output
 #printer: "table_printer"
-printer: "mpl_printer"
+#printer: "mpl_printer"
 
 
 

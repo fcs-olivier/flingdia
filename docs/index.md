@@ -43,8 +43,21 @@ The geometric meaning of each relation is described in the relation file of its 
 Check the meaning of `&left(a,b)` in the [point-point](schemas/rels/point_point.md) relation page.
 
 
-## Running Flingdia
+## Temporal operators
 
+Temporal operators are theory atoms that locate a formula in time. The
+horizon is `0` by default (a static scene) and is set with `-c n=…`. For
+example, the following places `a` on the table in the initial state:
+
+```clingo
+&on(a,table) :- &initial.
+```
+
+The operators `&true`, `&initial`, `&next`, `&prev`, `&eventually`,
+`&always`, `&until`, and `&not` are defined on the [semantics page](semantics.md).
+
+
+## Running Flingdia
 Install `metasp` and `matplotlib` (`pip install metasp matplotlib`). Matplotlib is required for the default diagram printer.
 
 Run Flingdia from this directory. For example:
