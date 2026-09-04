@@ -26,7 +26,7 @@ Each geometric sort corresponds to parameters as follows:
 
 ![Parameters of a point, a rectangle, and a line](assets/sorts/parameters.svg)
 
-The geometric constraints appying on geometric sorts are encoded into validity axioms (See [axioms](axioms.md)).
+The geometric constraints applying to geometric sorts are encoded as validity axioms (see [axioms](axioms.md)).
 
 ## Spatial relations
 
@@ -38,8 +38,8 @@ example, the following declaration places `a` to the left of `b`:
 ```
 
 Relation names are overloaded: the types of their arguments determine their
-meaning. Thus, `&left(a,c)` is, for instance, also working for point `a` and rectangle `c`. 
-The geometric meaning of each relation is described in the relation file of its type. 
+meaning. Thus `&left(a,c)` also works, for instance, for point `a` and rectangle `c`.
+The geometric meaning of each relation is described on the relation page for its argument types. 
 Check the meaning of `&left(a,b)` in the [point-point](schemas/rels/point_point.md) relation page.
 
 
@@ -58,6 +58,7 @@ The operators `&true`, `&initial`, `&next`, `&prev`, `&eventually`,
 
 
 ## Running Flingdia
+
 Install `metasp` and `matplotlib` (`pip install metasp matplotlib`). Matplotlib is required for the default diagram printer.
 
 Run Flingdia from this directory. For example:
