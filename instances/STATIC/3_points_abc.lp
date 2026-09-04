@@ -3,7 +3,8 @@ metasp solve flingo --meta-config config.yaml \
                     --project=show \
                     --warn=no-atom-undefined \
                     instances/STATIC/3_points_abc.lp  0 \
-                    -c display_time=7  
+                    -c display_time=7  \
+                    --printer table_printer
 *%
 
 point(a;b;c). 

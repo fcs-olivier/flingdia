@@ -28,6 +28,22 @@
   font-weight: 700;
 }
 
+.md-typeset blockquote:has(.paper-citation) {
+  font-size: 0.82em;
+  margin: 0.4em 0 0.8em;
+  padding: 0.15em 0 0.15em 0.7em;
+}
+
+.md-typeset blockquote:has(.paper-citation) .paper-citation {
+  margin: 0;
+}
+
+.md-typeset img {
+  width: 100%;
+  height: auto;
+  margin: 0.2rem 0 0.8rem;
+} 
+
 /* Visually separate the right-hand table-of-contents label from its links. */
 .md-sidebar--secondary {
   width: 8rem;

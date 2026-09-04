@@ -4,6 +4,7 @@ Flingdia is a declarative system for spatial reasoning. Its semantics are descri
 > Reasoning in Temporal Here-and-There with Constraints*. In ASPOCP 2026:
 > 19th Workshop on Answer Set Programming and Other Computing Paradigms,
 > FLoC 2026, Lisbon, Portugal.
+{: .paper-citation}
 
 This documentation gives a brief overview of the language and its encodings.
 
@@ -11,69 +12,62 @@ This documentation gives a brief overview of the language and its encodings.
 
 Flingdia programs use the standard clingo language extended with spatial atoms.
 Before using a spatial atom, declare each geometric object with one of the
-ordinary ASP predicates `point/1`, `rect/1`, or `line/1`.
-
-In Flingdia, a *sort* is a geometric category, not a clingo type declaration.
-It determines the parameters available to an object and which overloaded
-relations and actions may accept it. Declaring a sort does not assign parameter
-values or assert a spatial relation.
-
-| Object | Parameters |
-| --- | --- |
-| Point — `point(P)` | `x`, `y` |
-| Rectangle — `rect(R)` | `left_side`, `bottom`, `width`, `height` |
-| Line — `line(L)` | `xstart`, `ystart`, `xend`, `yend` |
-
-See the [axioms page](axioms.md) for validity conditions and spatial bounds.
-
-## Spatial relations
-
-Spatial relations are theory atoms of the form `&relation(arguments)`. For
-example, the following program declares two points and places `a` to the left
-of `b`:
+ordinary ASP predicates `point/1`, `rect/1`, or `line/1`. 
+Declaring a sort determines the parameters available to an object.
 
 ```clingo
 point(a).
 point(b).
+rect(c).
+```
+
+Traditional pooling methods, like `point(a;b).`, can be used to facilitate the declaration.
+Each geometric sort corresponds to parameters as follows:
+
+![Parameters of a point, a rectangle, and a line](assets/sorts/parameters.svg)
+
+The geometric constraints appying on geometric sorts are encoded into validity axioms (See [axioms](axioms.md)).
+
+## Spatial relations
+
+Spatial relations are theory atoms of the form `&relation(arguments)`. For
+example, the following declaration places `a` to the left of `b`:
+
+```clingo
 &left(a,b).
 ```
 
 Relation names are overloaded: the types of their arguments determine their
-meaning. Thus, `&left(a,b)` can relate two points, a point and a rectangle, or
-two rectangles. The corresponding relation pages in the navigation describe
-the supported object combinations precisely.
+meaning. Thus, `&left(a,c)` is, for instance, also working for point `a` and rectangle `c`. 
+The geometric meaning of each relation is described in the relation file of its type. 
+Check the meaning of `&left(a,b)` in the [point-point](schemas/rels/point_point.md) relation page.
 
-Flingdia uses the usual Cartesian orientation:
-
-```text
-                         y
-                         ↑
-                above   │
-    left  ←──────────────┼──────────────→  right   x
-                below   │
-                         ↓
-```
-
-Consequently, smaller `x` values lie farther left and smaller `y` values lie
-farther below. A rectangle is anchored by its `left_side` and `bottom`;
-`right_side` and `top` are derived from its `width` and `height`.
 
 ## Running Flingdia
 
-Run Flingdia from the `metasp/examples/flingdia` directory. For example:
+Install `metasp` and `matplotlib` (`pip install metasp matplotlib`). Matplotlib is required for the default diagram printer.
+
+Run Flingdia from this directory. For example:
 
 ```bash
 metasp solve flingo --meta-config config.yaml \
     --warn=no-atom-undefined \
-    instances/TEMP/blocks_world.lp 1 \
-    -c n=5 --project=show
+    --project=show \
+    instances/TEMP/blocks_world.lp  0 \
+    -c display_time=7  \
+    -c n=5 
 ```
 
-The input file is followed by the requested number of models (`0` means all
-models). The option `-c n=5` sets the temporal horizon, while `--project=show`
-projects solutions onto the displayed atoms. Each example file under
-`instances/` begins with a block comment containing its complete launch
-command, which can be copied and run from this directory.
+The arguments mean:
+
+- The input file is followed by the number of models to compute (`0` means all).
+- `-c n=5` sets the temporal horizon.
+- `--project=show` projects solutions onto the displayed atoms.
+- `-c display_time=7` keeps diagrams open for 7 seconds.
+- By default, Flingdia displays diagrams of the solutions. Add `--printer table_printer` to print only numeric tables.
+
+Each example file under `instances/` begins with a block comment containing
+its complete launch command, which can be copied and run from this directory.
 
 !!! note "Default axioms: definedness and inertia"
 
