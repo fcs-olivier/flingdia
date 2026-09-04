@@ -27,9 +27,9 @@ semantics-encoding:
   - "modules/base_objs.lp"     # For base objects
   #- "modules/europe.lp"     
 
-python-scripts: ["print_functions.py"] # comment all the printers to see the raw output
-#printer: "table_printer"
-#printer: "mpl_printer"
+python-scripts: ["print_functions.py"]
+# Override with --printer table_printer for tables or --printer none for raw output.
+printer: "mpl_printer"
 
 
 

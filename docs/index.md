@@ -77,7 +77,9 @@ The arguments mean:
 - `-c n=5` sets the temporal horizon.
 - `--project=show` projects solutions onto the displayed atoms.
 - `-c display_time=7` keeps diagrams open for 7 seconds.
-- By default, Flingdia displays diagrams of the solutions. Add `--printer table_printer` to print only numeric tables.
+- By default, Flingdia displays diagrams of the solutions. Add
+  `--printer table_printer` to print only numeric tables, or `--printer none`
+  to use the bare model output.
 
 Each example file under `instances/` begins with a block comment containing
 its complete launch command, which can be copied and run from this directory.

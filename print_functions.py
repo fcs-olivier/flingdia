@@ -863,3 +863,13 @@ def table_printer(model: Model, system) -> None:
 
 def mpl_printer(model: Model, system) -> None:
     printer_manager.mpl_printer(model, system)
+
+
+def bare_printer(model: Model, system) -> None:
+    """Print the model without Flingdia's table or diagram formatting."""
+    print(model)
+
+
+# Python keywords cannot be function names, but metasp discovers printers from
+# module attributes, so this exposes the command-line/config value "none".
+globals()["none"] = bare_printer

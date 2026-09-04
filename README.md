@@ -22,7 +22,10 @@ metasp solve flingo --meta-config config.yaml --warn=no-atom-undefined \
     instances/ST/blocks_world.lp 1 -c n=5 --project=show
 ```
 
-`config.yaml` lists the syntax, semantics, schemas, and printer. Switch `printer` to `table_printer` if you do not want diagrams. Instances live under `instances/`; the first comment block of each file shows its intended command.
+`config.yaml` lists the syntax, semantics, schemas, and printer. The default is
+`mpl_printer`; pass `--printer table_printer` for numeric tables or
+`--printer none` for bare model output. Instances live under `instances/`; the
+first comment block of each file shows its intended command.
 
 ## Documentation (optional)
 
