@@ -7,8 +7,8 @@ semantics-encoding:
   - "numerical_atoms.lp"
   - "derived_quantities.lp"
   # All the schemas are in the geo_schema folders below.
-  - "schemas/rels/relation_signatures.lp" # Generic relation signatures
-  - "schemas/rels/line_.lp"     # For relations starting here
+  - "schemas/rels/relation_signatures.lp" # Generic RELATION signatures
+  - "schemas/rels/line_.lp"     
   - "schemas/rels/line_point.lp"
   - "schemas/rels/line_point_point.lp"
   - "schemas/rels/point_line.lp"
@@ -20,8 +20,8 @@ semantics-encoding:
   - "schemas/rels/rect_line.lp"
   - "schemas/rels/rect_rect_POS.lp"
   - "schemas/rels/rect_rect_TOPO.lp"
-  - "schemas/actions/action_signatures.lp" # Generic action signatures
-  - "schemas/actions/move.lp"     # For actions
+  - "schemas/actions/action_signatures.lp" # Generic ACTION signatures
+  - "schemas/actions/move.lp"     
   - "schemas/actions/grows.lp" 
   # All the modules are in the modules folder below.
   - "modules/base_objs.lp"     # For base objects

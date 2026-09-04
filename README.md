@@ -1,6 +1,6 @@
 # flingdia
 
-[Documentation](https://github.com/fcs-olivier/flingdia)
+Full documentation [here!](https://fcs-olivier.github.io/flingdia/)
 
 Flingdia is a declarative language for spatio-temporal reasoning, built on
 [metasp](https://github.com/potassco/metasp) / flingo.
