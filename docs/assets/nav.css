@@ -15,6 +15,7 @@
 .md-nav--primary .md-nav__item--nested > .md-nav__link {
   pointer-events: none;
   cursor: default;
+  font-weight: 700;
 }
 
 .md-nav--primary .md-nav__item--nested .md-nav__icon {

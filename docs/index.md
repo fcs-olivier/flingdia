@@ -24,8 +24,7 @@ values or assert a spatial relation.
 | Rectangle — `rect(R)` | `left_side`, `bottom`, `width`, `height` |
 | Line — `line(L)` | `xstart`, `ystart`, `xend`, `yend` |
 
-See [geometric sorts](schemas/geo_sorts.md) for their derived parameters,
-validity conditions, and spatial bounds.
+See the [axioms page](axioms.md) for validity conditions and spatial bounds.
 
 ## Spatial relations
 

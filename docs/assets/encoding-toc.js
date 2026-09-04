@@ -2,13 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const toc = document.querySelector(
     ".md-sidebar--secondary .md-nav__list[data-md-component='toc']",
   );
-  const headings = Array.from(
-    document.querySelectorAll(".asp-doc h3[id]"),
-  ).filter((heading) => heading.textContent.includes("("));
-
-  if (!toc || headings.length === 0) {
+  if (!toc) {
     return;
   }
+
+  // Clindocs `%#` section titles become h3. Include all of them, not only
+  // predicate signatures such as `left(P1,P2)`. Skip the encoding filename.
+  const headings = Array.from(
+    document.querySelectorAll(".asp-doc h3[id]"),
+  ).filter((heading) => !heading.id.endsWith(".lp"));
 
   for (const link of toc.querySelectorAll('a[href$=".lp"]')) {
     link.closest("li")?.remove();
